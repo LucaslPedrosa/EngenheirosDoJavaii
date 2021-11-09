@@ -2,40 +2,107 @@
 
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="visao.ControlePrincipal">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="652.0" prefWidth="1041.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="visao.ControlePrincipal">
    <children>
-      <VBox prefHeight="400.0" prefWidth="144.0" style="-fx-background-color: #3f2863;">
+      <VBox prefHeight="652.0" prefWidth="254.0" style="-fx-background-color: #3f2863;">
          <children>
-            <AnchorPane prefHeight="49.0" prefWidth="137.0" />
-            <Button alignment="TOP_LEFT" maxWidth="1.7976931348623157E308" mnemonicParsing="false" style="-fx-background-color: #3f2863;" text="Cadastrar usuário" textFill="WHITE" textOverrun="WORD_ELLIPSIS">
+            <AnchorPane prefHeight="51.0" prefWidth="244.0" />
+            <Button alignment="BASELINE_LEFT" maxWidth="1.7976931348623157E308" mnemonicParsing="false" style="-fx-background-color: #3f2863;" text="Cadastrar usuário" textFill="WHITE" textOverrun="WORD_ELLIPSIS">
                <font>
                   <Font name="Microsoft JhengHei" size="14.0" />
                </font>
+               <graphic>
+                  <ImageView fitHeight="40.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@imagens/cadatrar.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+               <padding>
+                  <Insets left="5.0" />
+               </padding>
+               <VBox.margin>
+                  <Insets bottom="10.0" left="5.0" top="10.0" />
+               </VBox.margin>
             </Button>
-            <Button alignment="TOP_LEFT" layoutX="10.0" layoutY="10.0" maxWidth="1.7976931348623157E308" mnemonicParsing="false" style="-fx-background-color: #3f2863;" text="Alterar cadastro" textFill="WHITE">
+            <Button alignment="BASELINE_LEFT" layoutX="10.0" layoutY="10.0" maxWidth="1.7976931348623157E308" mnemonicParsing="false" style="-fx-background-color: #3f2863;" text="Alterar cadastro" textFill="WHITE">
                <font>
                   <Font name="Microsoft JhengHei" size="14.0" />
                </font>
+               <graphic>
+                  <ImageView fitHeight="40.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@imagens/alterar.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+               <padding>
+                  <Insets left="5.0" />
+               </padding>
+               <VBox.margin>
+                  <Insets bottom="10.0" left="5.0" top="10.0" />
+               </VBox.margin>
             </Button>
-            <Button alignment="TOP_LEFT" layoutX="10.0" layoutY="39.0" maxWidth="1.7976931348623157E308" mnemonicParsing="false" style="-fx-background-color: #3f2863;" text="Pesquisar usuário" textFill="WHITE">
+            <Button alignment="BASELINE_LEFT" layoutX="10.0" layoutY="39.0" maxWidth="1.7976931348623157E308" mnemonicParsing="false" style="-fx-background-color: #3f2863;" text="Pesquisar usuário" textFill="WHITE">
                <font>
                   <Font name="Microsoft JhengHei" size="14.0" />
                </font>
+               <graphic>
+                  <ImageView fitHeight="40.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@imagens/pesquisar.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+               <padding>
+                  <Insets left="5.0" />
+               </padding>
+               <VBox.margin>
+                  <Insets bottom="10.0" left="5.0" top="10.0" />
+               </VBox.margin>
             </Button>
-            <Button alignment="TOP_LEFT" layoutX="10.0" layoutY="68.0" maxWidth="1.7976931348623157E308" mnemonicParsing="false" style="-fx-background-color: #3f2863;" text="Vacinação" textFill="WHITE">
+            <Button alignment="BASELINE_LEFT" layoutX="10.0" layoutY="68.0" maxWidth="1.7976931348623157E308" mnemonicParsing="false" style="-fx-background-color: #3f2863;" text="Vacinação" textFill="WHITE">
                <font>
                   <Font name="Microsoft JhengHei" size="14.0" />
                </font>
+               <graphic>
+                  <ImageView fitHeight="40.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@imagens/vacina.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+               <padding>
+                  <Insets left="5.0" />
+               </padding>
+               <VBox.margin>
+                  <Insets bottom="10.0" left="5.0" top="10.0" />
+               </VBox.margin>
             </Button>
-            <Button alignment="TOP_LEFT" layoutX="10.0" layoutY="97.0" maxWidth="1.7976931348623157E308" mnemonicParsing="false" style="-fx-background-color: #3f2863;" text="Agendamento" textFill="WHITE">
+            <Button alignment="BASELINE_LEFT" layoutX="10.0" layoutY="97.0" maxWidth="1.7976931348623157E308" mnemonicParsing="false" style="-fx-background-color: #3f2863;" text="Agendamento" textFill="WHITE">
                <font>
                   <Font name="Microsoft JhengHei" size="14.0" />
                </font>
+               <graphic>
+                  <ImageView fitHeight="40.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@imagens/agendament.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+               <padding>
+                  <Insets left="5.0" />
+               </padding>
+               <VBox.margin>
+                  <Insets bottom="10.0" left="5.0" top="10.0" />
+               </VBox.margin>
             </Button>
          </children>
          <padding>

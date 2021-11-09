@@ -34,7 +34,7 @@ public class App extends Application{
         Scene tela = new Scene(raiz);
         tela.setFill(javafx.scene.paint.Color.TRANSPARENT);
         
-        palco.setTitle("voce nao deveria estar vendo isso");
+        palco.setTitle("vacinacao digital");
         palco.setScene(tela);
 
         //tela.setFill(javaFx.scene.paint.Color.TRANSPARENT);
