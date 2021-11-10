@@ -1,14 +1,15 @@
 package modelo;
 
 public class Pessoa {
-    String nome;
-    String sexo;
-    String nascimento;
-    String[] problemasDeSaude;
-    long cpf;
-    long rg;
-    Vacina[] vacinaAgendada;
-    Vacina[] vacinaUsada;
+
+    private String nome;
+    private String sexo;
+    private String nascimento;
+    private String[] problemasDeSaude;
+    private long cpf;
+    private long rg;
+    private Vacina[] vacinaAgendada;
+    private Vacina[] vacinaUsada;
 
     //Construtores
     public Pessoa(){
@@ -23,7 +24,7 @@ public class Pessoa {
 
     }
 
-    public PessoaString nome, String sexo, String nascimento, long cpf, long rg, Vacina[] vacinaAgendada, Vacina[] vacinaUsada. String[] problemasDeSaude) {
+    public Pessoa (String nome, String sexo, String nascimento, long cpf, long rg, Vacina[] vacinaAgendada, Vacina[] vacinaUsada, String[] problemasDeSaude) {
         this.nome = nome;
         this.sexo = sexo;
         this.nascimento = nascimento;
