@@ -1,18 +1,27 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.geometry.Insets?>
+<?import javafx.scene.Cursor?>
 <?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.DatePicker?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
 
 <AnchorPane fx:id="AnchorPai" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="720.0" prefWidth="1280.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="visao.ControlePrincipal">
    <children>
-      <VBox prefHeight="720.0" prefWidth="254.0" style="-fx-background-color: #3f2863;">
+      <VBox prefHeight="720.0" prefWidth="254.0" style="-fx-background-color: #2C1764;">
          <children>
             <AnchorPane prefHeight="97.0" prefWidth="244.0">
                <children>
@@ -28,43 +37,7 @@
                   </Label>
                </children>
             </AnchorPane>
-            <Button alignment="BASELINE_LEFT" graphicTextGap="10.0" maxWidth="1.7976931348623157E308" mnemonicParsing="false" style="-fx-background-color: #3f2863;" text="Cadastrar usuário" textFill="WHITE" textOverrun="WORD_ELLIPSIS">
-               <font>
-                  <Font name="Microsoft JhengHei" size="14.0" />
-               </font>
-               <graphic>
-                  <ImageView fitHeight="40.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true">
-                     <image>
-                        <Image url="@imagens/cadatrar.png" />
-                     </image>
-                  </ImageView>
-               </graphic>
-               <padding>
-                  <Insets left="5.0" />
-               </padding>
-               <VBox.margin>
-                  <Insets bottom="10.0" left="5.0" top="10.0" />
-               </VBox.margin>
-            </Button>
-            <Button alignment="BASELINE_LEFT" graphicTextGap="10.0" layoutX="10.0" layoutY="10.0" maxWidth="1.7976931348623157E308" mnemonicParsing="false" style="-fx-background-color: #3f2863;" text="Alterar cadastro" textFill="WHITE">
-               <font>
-                  <Font name="Microsoft JhengHei" size="14.0" />
-               </font>
-               <graphic>
-                  <ImageView fitHeight="40.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true">
-                     <image>
-                        <Image url="@imagens/alterar.png" />
-                     </image>
-                  </ImageView>
-               </graphic>
-               <padding>
-                  <Insets left="5.0" />
-               </padding>
-               <VBox.margin>
-                  <Insets bottom="10.0" left="5.0" top="10.0" />
-               </VBox.margin>
-            </Button>
-            <Button alignment="BASELINE_LEFT" graphicTextGap="10.0" layoutX="10.0" layoutY="39.0" maxWidth="1.7976931348623157E308" mnemonicParsing="false" style="-fx-background-color: #3f2863;" text="Pesquisar usuário" textFill="WHITE">
+            <Button alignment="BASELINE_LEFT" graphicTextGap="10.0" layoutX="10.0" layoutY="39.0" maxWidth="1.7976931348623157E308" mnemonicParsing="false" style="-fx-background-color: #2C1764;" text="Pesquisar usuário" textFill="WHITE">
                <font>
                   <Font name="Microsoft JhengHei" size="14.0" />
                </font>
@@ -82,32 +55,14 @@
                   <Insets bottom="10.0" left="5.0" top="10.0" />
                </VBox.margin>
             </Button>
-            <Button alignment="BASELINE_LEFT" graphicTextGap="10.0" layoutX="10.0" layoutY="68.0" maxWidth="1.7976931348623157E308" mnemonicParsing="false" style="-fx-background-color: #3f2863;" text="Vacinação" textFill="WHITE">
+            <Button alignment="BASELINE_LEFT" graphicTextGap="10.0" maxWidth="1.7976931348623157E308" mnemonicParsing="false" style="-fx-background-color: #2C1764;" text="Cadastrar usuário" textFill="WHITE" textOverrun="WORD_ELLIPSIS">
                <font>
                   <Font name="Microsoft JhengHei" size="14.0" />
                </font>
                <graphic>
                   <ImageView fitHeight="40.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="@imagens/vacina.png" />
-                     </image>
-                  </ImageView>
-               </graphic>
-               <padding>
-                  <Insets left="5.0" />
-               </padding>
-               <VBox.margin>
-                  <Insets bottom="10.0" left="5.0" top="10.0" />
-               </VBox.margin>
-            </Button>
-            <Button alignment="BASELINE_LEFT" graphicTextGap="10.0" layoutX="10.0" layoutY="97.0" maxWidth="1.7976931348623157E308" mnemonicParsing="false" style="-fx-background-color: #3f2863;" text="Agendamento" textFill="WHITE">
-               <font>
-                  <Font name="Microsoft JhengHei" size="14.0" />
-               </font>
-               <graphic>
-                  <ImageView fitHeight="40.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true">
-                     <image>
-                        <Image url="@imagens/agendament.png" />
+                        <Image url="@imagens/cadatrar.png" />
                      </image>
                   </ImageView>
                </graphic>
@@ -123,12 +78,160 @@
             <Insets left="10.0" top="20.0" />
          </padding>
       </VBox>
-      <AnchorPane layoutX="254.0" layoutY="32.0" prefHeight="690.0" prefWidth="1028.0">
+      <AnchorPane layoutX="254.0" layoutY="27.0" prefHeight="693.0" prefWidth="1034.0">
          <children>
-            <AnchorPane layoutX="773.0" layoutY="-34.0" prefHeight="0.0" prefWidth="254.0" style="-fx-background-color: BLACK;" />
+            <AnchorPane layoutX="-6.0" prefHeight="693.0" prefWidth="1034.0">
+               <children>
+                  <AnchorPane layoutX="6.0" prefHeight="73.0" prefWidth="1034.0" style="-fx-background-color: #361D7D;" AnchorPane.bottomAnchor="620.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="-21.0" AnchorPane.topAnchor="0.0">
+                     <children>
+                        <Label layoutX="25.0" layoutY="18.0" prefHeight="51.0" prefWidth="173.0" text="Pesquisar" textFill="WHITE">
+                           <font>
+                              <Font size="35.0" />
+                           </font>
+                        </Label>
+                     </children>
+                  </AnchorPane>
+                  <GridPane layoutX="14.0" layoutY="114.0" prefHeight="573.0" prefWidth="999.0">
+                    <columnConstraints>
+                      <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                      <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                    </columnConstraints>
+                    <rowConstraints>
+                      <RowConstraints maxHeight="298.0" minHeight="10.0" prefHeight="50.0" vgrow="SOMETIMES" />
+                      <RowConstraints maxHeight="523.0" minHeight="0.0" prefHeight="523.0" vgrow="SOMETIMES" />
+                    </rowConstraints>
+                     <children>
+                        <HBox prefHeight="79.0" prefWidth="393.0">
+                           <children>
+                              <TextField alignment="CENTER" maxWidth="482.0" prefHeight="27.0" prefWidth="357.0" style="-fx-border-radius: 20; -fx-background-color: white; -fx-border-color: #2C1764; -fx-background-radius: 20;" />
+                              <Button mnemonicParsing="false" prefHeight="25.0" prefWidth="149.0" text="Pesquisar" />
+                           </children>
+                        </HBox>
+                     </children>
+                  </GridPane>
+               </children>
+            </AnchorPane>
+            <AnchorPane prefHeight="693.0" prefWidth="1034.0" visible="false" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+               <children>
+                  <AnchorPane layoutY="247.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="446.0" prefWidth="1034.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="247.0">
+                     <children>
+                        <GridPane hgap="30.0" layoutX="10.0" layoutY="-172.0" prefHeight="618.0" prefWidth="1017.0" style="-fx-background-color: white;" vgap="10.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="17.0" AnchorPane.topAnchor="-172.0">
+                           <children>
+                              <TextField maxWidth="-Infinity" prefWidth="500.0" style="-fx-background-color: white; -fx-background-radius: 20; -fx-border-color: #3f2863; -fx-border-radius: 20;" GridPane.columnIndex="1">
+                                 <GridPane.margin>
+                                    <Insets />
+                                 </GridPane.margin>
+                              </TextField>
+                              <Label layoutX="20.0" layoutY="73.0" text="Nome" textFill="#3f2863">
+                                 <font>
+                                    <Font name="Arial Bold" size="24.0" />
+                                 </font>
+                                 <padding>
+                                    <Insets left="200.0" />
+                                 </padding>
+                                 <GridPane.margin>
+                                    <Insets />
+                                 </GridPane.margin>
+                              </Label>
+                              <Label layoutX="20.0" layoutY="73.0" text="Sexo" textFill="#3f2863" GridPane.rowIndex="3">
+                                 <font>
+                                    <Font name="Arial Bold" size="24.0" />
+                                 </font>
+                                 <padding>
+                                    <Insets left="200.0" right="60.0" />
+                                 </padding>
+                                 <GridPane.margin>
+                                    <Insets />
+                                 </GridPane.margin>
+                              </Label>
+                              <Label layoutX="20.0" layoutY="73.0" text="RG" textFill="#3f2863" GridPane.rowIndex="2">
+                                 <font>
+                                    <Font name="Arial Bold" size="24.0" />
+                                 </font>
+                                 <padding>
+                                    <Insets left="200.0" right="60.0" />
+                                 </padding>
+                                 <GridPane.margin>
+                                    <Insets />
+                                 </GridPane.margin>
+                              </Label>
+                              <Label layoutX="20.0" layoutY="73.0" text="CPF" textFill="#3f2863" GridPane.rowIndex="1">
+                                 <font>
+                                    <Font name="Arial Bold" size="24.0" />
+                                 </font>
+                                 <padding>
+                                    <Insets left="200.0" />
+                                 </padding>
+                                 <GridPane.margin>
+                                    <Insets />
+                                 </GridPane.margin>
+                              </Label>
+                              <Label layoutX="27.0" layoutY="481.0" text="Nascimento" textFill="#3f2863" GridPane.rowIndex="4">
+                                 <font>
+                                    <Font name="Arial Bold" size="24.0" />
+                                 </font>
+                                 <padding>
+                                    <Insets left="200.0" />
+                                 </padding>
+                                 <GridPane.margin>
+                                    <Insets />
+                                 </GridPane.margin>
+                              </Label>
+                              <TextField layoutX="181.0" layoutY="70.0" maxWidth="-Infinity" prefWidth="300.0" style="-fx-background-color: white; -fx-background-radius: 20; -fx-border-color: #3f2863; -fx-border-radius: 20;" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                              <TextField layoutX="181.0" layoutY="70.0" maxWidth="-Infinity" prefWidth="300.0" style="-fx-background-color: white; -fx-background-radius: 20; -fx-border-color: #3f2863; -fx-border-radius: 20;" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                              <DatePicker minWidth="-Infinity" style="-fx-background-color: white; -fx-background-radius: 20; -fx-border-color: #3f2863;" GridPane.columnIndex="1" GridPane.rowIndex="4" />
+                              <ComboBox prefWidth="150.0" style="-fx-background-color: white; -fx-background-radius: 20; -fx-border-color: #3f2863; -fx-border-radius: 20;" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+                              <Label layoutX="20.0" layoutY="512.0" text="Comorbidades" textFill="#3f2863" GridPane.rowIndex="5">
+                                 <font>
+                                    <Font name="Arial Bold" size="24.0" />
+                                 </font>
+                                 <padding>
+                                    <Insets left="200.0" />
+                                 </padding>
+                              </Label>
+                              <TextArea maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="80.0" prefWidth="500.0" style="-fx-border-color: #3f2863; -fx-background-color: white; -fx-background-radius: 20;" GridPane.columnIndex="1" GridPane.rowIndex="5" />
+                              <Button mnemonicParsing="false" style="-fx-background-color: #2C1764; -fx-background-radius: 8; -fx-border-radius: 8; -fx-border-color: #2C1764;" text="Cadastrar" textFill="WHITE" GridPane.columnIndex="1" GridPane.rowIndex="6">
+                                 <font>
+                                    <Font name="Arial Bold" size="18.0" />
+                                 </font>
+                                 <cursor>
+                                    <Cursor fx:constant="HAND" />
+                                 </cursor>
+                              </Button>
+                           </children>
+                           <columnConstraints>
+                              <ColumnConstraints halignment="LEFT" hgrow="SOMETIMES" maxWidth="-Infinity" prefWidth="400.0" />
+                              <ColumnConstraints halignment="LEFT" hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                           </columnConstraints>
+                           <padding>
+                              <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                           </padding>
+                           <rowConstraints>
+                              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                           </rowConstraints>
+                        </GridPane>
+                     </children>
+                  </AnchorPane>
+                  <AnchorPane prefHeight="73.0" prefWidth="1026.0" style="-fx-background-color: #361D7D;">
+                     <children>
+                        <Label layoutX="25.0" layoutY="18.0" prefHeight="51.0" prefWidth="277.0" text="Cadastrar usuário" textFill="WHITE">
+                           <font>
+                              <Font size="35.0" />
+                           </font>
+                        </Label>
+                     </children>
+                  </AnchorPane>
+               </children>
+            </AnchorPane>
          </children>
       </AnchorPane>
-      <AnchorPane layoutX="-5.0" layoutY="-2.0" prefHeight="29.0" prefWidth="1286.0" style="-fx-background-color: #3f2863;">
+      <AnchorPane layoutX="-5.0" layoutY="-2.0" prefHeight="29.0" prefWidth="1280.0" style="-fx-background-color: #2C1764;">
          <children>
             <ImageView fx:id="exitButton" fitHeight="26.0" fitWidth="39.0" layoutX="1259.0" layoutY="2.0" pickOnBounds="true" preserveRatio="true">
                <image>
