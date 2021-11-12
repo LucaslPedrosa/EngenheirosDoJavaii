@@ -1,0 +1,15 @@
+Button:emCima{
+    -fx-background-color: #582fc8;
+}
+
+Button:naoEmCima{
+    -fx-background-color:#2C1764;
+}
+
+Button:exit{
+    -fx-background-color:#ffffff;
+}
+
+Button:exitOn{
+    -fx-background-color:#db0404;
+}
