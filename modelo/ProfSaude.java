@@ -49,19 +49,19 @@ public class ProfSaude extends Pessoa implements Serializable {
         ps.cadastrarProf(this);
     }
 
-    public ArrayList<ProfSaude> listarProficionais() throws IOException, ClassNotFoundException {
+    public ArrayList<ProfSaude> listarProfissionais() throws IOException, ClassNotFoundException {
         ProfSaudeDados ps = new ProfSaudeDados();
-        return ps.listarProficionais();
+        return ps.listarProfissionais();
     }
 
-    public void removerProficional(long numNacionalIdentidade)
+    public void removerProfissional(long numNacionalIdentidade)
             throws FileNotFoundException, IOException, ClassNotFoundException {
         ProfSaudeDados ps = new ProfSaudeDados();
-        ps.removerProficional(numNacionalIdentidade);
+        ps.removerProfissional(numNacionalIdentidade);
     }
 
     public String imprimir() {
-        return "Tipo: " + this.getTipo() + "\nEndereço:" + this.getAdress() + "\nNumero nacional de identificação: "
+        return "Tipo: " + this.getTipo() + "\nEndereço: " + this.getAdress() + "\nNumero nacional de identificação: "
                 + this.getNumNacionalIdentidade();
     }
 

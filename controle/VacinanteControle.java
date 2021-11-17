@@ -13,7 +13,7 @@ public class VacinanteControle {
         vt.cadastrar();
     }
 
-    public ArrayList<Vacinante> listarVacinante() throws FileNotFoundException, IOException, ClassNotFoundException {
+    private ArrayList<Vacinante> listarVacinante() throws FileNotFoundException, IOException, ClassNotFoundException {
         Vacinante vt = new Vacinante();
         return vt.listarVaciante();
     }

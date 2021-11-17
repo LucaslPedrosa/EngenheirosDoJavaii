@@ -8,7 +8,7 @@ import modelo.ProfSaude;
 
 public class ProfSaudeControle {
 
-    public void cadastrarVacina(String nome, String endereco, long numIdentidade)
+    public void cadastrar(String nome, String endereco, long numIdentidade)
             throws FileNotFoundException, IOException, ClassNotFoundException {
         ProfSaude ps = new ProfSaude(nome, endereco, numIdentidade);
         ps.cadastrar();
@@ -16,16 +16,16 @@ public class ProfSaudeControle {
 
     public ArrayList<ProfSaude> listarVacina() throws FileNotFoundException, IOException, ClassNotFoundException {
         ProfSaude ps = new ProfSaude();
-        return ps.listarProficionais();
+        return ps.listarProfissionais();
     }
 
-    public void removerVacina(long numNacionalIdentidade)
+    public void removerProfSaude(long numNacionalIdentidade)
             throws FileNotFoundException, IOException, ClassNotFoundException {
         ProfSaude ps = new ProfSaude();
-        ps.removerProficional(numNacionalIdentidade);
+        ps.removerProfissional(numNacionalIdentidade);
     }
 
-    public ProfSaude pesquisarProficional(long numNacionalIdentidade)
+    public ProfSaude pesquisarProfissional(long numNacionalIdentidade)
             throws FileNotFoundException, IOException, ClassNotFoundException {
         ProfSaude ps = null;
         ArrayList<ProfSaude> proficionais = listarVacina();
@@ -40,7 +40,7 @@ public class ProfSaudeControle {
 
     public String imprimir(long numNacionalIdentidade)
             throws ClassNotFoundException, FileNotFoundException, IOException {
-        ProfSaude ps = pesquisarProficional(numNacionalIdentidade);
+        ProfSaude ps = pesquisarProfissional(numNacionalIdentidade);
         return ps.imprimir();
     }
 

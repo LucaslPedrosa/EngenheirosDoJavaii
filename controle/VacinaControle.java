@@ -13,7 +13,7 @@ public class VacinaControle {
         v.cadastrarVacina();
     }
 
-    public ArrayList<Vacina> listarVacina() throws FileNotFoundException, IOException, ClassNotFoundException {
+    private ArrayList<Vacina> listarVacina() throws FileNotFoundException, IOException, ClassNotFoundException {
         Vacina v = new Vacina();
         return v.listarVacina();
     }
@@ -29,7 +29,7 @@ public class VacinaControle {
         Vacina v = null;
         ArrayList<Vacina> vacinas = listarVacina();
         for (int i = 0; i < vacinas.size(); i++) {
-            if (marca == vacinas.get(i).getMarca() && lote == vacinas.get(i).getLote()) {
+            if (marca.equals(vacinas.get(i).getMarca()) && lote == vacinas.get(i).getLote()) {
                 v = vacinas.get(i);
                 break;
             }

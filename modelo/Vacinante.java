@@ -4,6 +4,7 @@ import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.Serializable;
 import java.util.ArrayList;
+import modelo.Vacinacao;
 
 import dados.VacinanteDados;
 

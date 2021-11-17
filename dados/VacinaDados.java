@@ -43,7 +43,7 @@ public class VacinaDados {
             vacinas = listarVacina();
 
         for (int i = 0; i < vacinas.size(); i++) {
-            if (marca == vacinas.get(i).getMarca() && lote == vacinas.get(i).getLote()) {
+            if (marca.equals(vacinas.get(i).getMarca()) && lote == vacinas.get(i).getLote()) {
                 vacinas.remove(i);
                 break;
             }
