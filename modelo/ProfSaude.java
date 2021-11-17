@@ -7,15 +7,16 @@ import java.util.ArrayList;
 
 import dados.ProfSaudeDados;
 
-public class ProfSaude extends Pessoa implements Serializable {
-    String adress;
+public class ProfSaude implements Serializable {
+    private String nome;
+    private String adress;
     long numNacionalIdentidade;
 
     public ProfSaude() {
     }
 
     public ProfSaude(String nome, String endereco, long numIdentidade) {
-        super(nome);
+        this.nome = nome;
         this.adress = endereco;
         this.numNacionalIdentidade = numIdentidade;
     }
@@ -27,7 +28,11 @@ public class ProfSaude extends Pessoa implements Serializable {
     }
 
     public String getAdress() {
-        return adress;
+        return this.adress;
+    }
+
+    public String getNome() {
+        return this.nome;
     }
 
     public void setAdress(String adress) {

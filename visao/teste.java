@@ -26,6 +26,12 @@ public class teste {
          */
 
         VacinanteControle vacinante = new VacinanteControle();
+        // vacinante.cadastrarVacinante("Roger roger", "Battledroid", "Geonosis",
+        // "Bateria fraca", 40028922); ok
+        // System.out.println(vacinante.imprimirCadastro(40028922)); ok
+
+        // vacinante.removerVacinante(40028922); ok
+        // System.out.println(vacinante.ImprimirTodosCadastros()); ok
 
     }
 }

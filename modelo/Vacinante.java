@@ -7,8 +7,9 @@ import java.util.ArrayList;
 
 import dados.VacinanteDados;
 
-public class Vacinante extends Pessoa implements Serializable {
+public class Vacinante implements Serializable {
 
+    private String nome;
     private String sexo;
     private String nascimento;
     private String problemasDeSaude;
@@ -18,14 +19,14 @@ public class Vacinante extends Pessoa implements Serializable {
     private ArrayList<Agendamento> agenda;
 
     public Vacinante(String nome) {
-        super(nome);
+        this.nome = nome;
     }
 
     public Vacinante() {
     }
 
     public Vacinante(String nome, String sexo, String nascimento, String problemasDeSaude, long cpf) {
-        super(nome);
+        this.nome = nome;
         this.sexo = sexo;
         this.nascimento = nascimento;
         this.problemasDeSaude = problemasDeSaude;
@@ -90,8 +91,8 @@ public class Vacinante extends Pessoa implements Serializable {
     }
 
     public String imprimirCadastro() {
-        return "Nome: " + super.getNome() + "\nCPF: " + this.getCPF() + "\nRG: " + this.getRG() + "\nNascimento: "
-                + this.getNascimento() + "\nSexo: " + this.getSexo() + "\nSexo: " + this.getSexo();
+        return ("Nome: " + this.nome + "\nCPF: " + this.getCPF() + "\nRG: " + this.getRG() + "\nNascimento: "
+                + this.getNascimento() + "\nSexo: " + this.getSexo());
     }
 
     public void addCartaoVacina(Vacina vacina, String data, ProfSaude proSRes, int dose) {
