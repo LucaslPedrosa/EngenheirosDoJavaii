@@ -4,7 +4,6 @@ import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.Serializable;
 import java.util.ArrayList;
-import modelo.Vacinacao;
 
 import dados.VacinanteDados;
 
@@ -16,6 +15,7 @@ public class Vacinante extends Pessoa implements Serializable {
     private long cpf;
     private long rg;
     private ArrayList<Vacinacao> cartaoVacina;
+    private ArrayList<Agendamento> agenda;
 
     public Vacinante(String nome) {
         super(nome);
@@ -74,11 +74,6 @@ public class Vacinante extends Pessoa implements Serializable {
     }
 
     // metodos
-    public void addCartaoVacina(Vacina vacina, String data, ProfSaude proSRes, int dose) {
-        Vacinacao vnc = new Vacinacao(vacina, data, proSRes, dose);
-        cartaoVacina.add(vnc);
-    }
-
     public void cadastrar() throws IOException, ClassNotFoundException {
         VacinanteDados vd = new VacinanteDados();
         vd.cadastrarVacinante(this);
@@ -99,6 +94,23 @@ public class Vacinante extends Pessoa implements Serializable {
                 + this.getNascimento() + "\nSexo: " + this.getSexo() + "\nSexo: " + this.getSexo();
     }
 
+    public void addCartaoVacina(Vacina vacina, String data, ProfSaude proSRes, int dose) {
+        Vacinacao vnc = new Vacinacao(vacina, data, proSRes, dose);
+        cartaoVacina.add(vnc);
+    }
+
+    public void removeCartaoVacina(Vacina vacina, String data, int dose) {
+        Vacinacao v = null;
+        for (int i = 0; i < cartaoVacina.size(); i++) {
+            if (vacina.equals(cartaoVacina.get(i).getVacina()) && data.equals(cartaoVacina.get(i).getData())
+                    && cartaoVacina.get(i).getDose() == dose) {
+                v = cartaoVacina.get(i); // Caso retorne nullPointer, significa que não foi encontrado
+                break;
+            }
+        }
+        cartaoVacina.remove(v);
+    }
+
     public String imprimirCartaoVacina() {
         String picadas = "";
         for (int i = 0; i < cartaoVacina.size(); i++) {
@@ -106,4 +118,30 @@ public class Vacinante extends Pessoa implements Serializable {
         }
         return picadas;
     }
+
+    public void agendar(Vacina vacine, String data) {
+        Agendamento novo = new Agendamento(vacine, data);
+        agenda.add(novo);
+    }
+
+    public void removeAgenda(Vacina vacina, String data) {
+        Agendamento a = null;
+        for (int i = 0; i < agenda.size(); i++) {
+            if (vacina.equals(agenda.get(i).getVacina()) && data.equals(agenda.get(i).getData())) {
+                a = agenda.get(i); // Caso retorne nullPointer, significa que não foi encontrado
+                break;
+            }
+        }
+        agenda.remove(a);
+    }
+
+    public String imprimirAgenda() { // Como a agenda serve para hipoteticamente ser mostrada no celular da pessoa,
+                                     // esse método provavelmente não será usado nesta aplicação
+        String FuturasPicadas = "";
+        for (int i = 0; i < agenda.size(); i++) {
+            FuturasPicadas += agenda.get(i).imprimir() + "\n\n\n";
+        }
+        return FuturasPicadas;
+    }
+
 }

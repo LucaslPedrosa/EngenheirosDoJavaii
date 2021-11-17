@@ -16,7 +16,7 @@ public class teste {
          * ok System.out.println(vacina.ImprimirTodos());
          */
 
-        ProfSaudeControle ProfSaude = new ProfSaudeControle(); // ok
+        // ProfSaudeControle ProfSaude = new ProfSaudeControle(); // ok
         // ProfSaude.cadastrar("Tacinho fofinho", "Rua dos bobos, numero 0", 40028922);
         // ok
         // System.out.println(ProfSaude.imprimir(40028922)); ok
@@ -24,6 +24,8 @@ public class teste {
          * ProfSaude.removerProfSaude(40028922); ok
          * System.out.println(ProfSaude.ImprimirTodos());
          */
+
+        VacinanteControle vacinante = new VacinanteControle();
 
     }
 }

@@ -20,7 +20,7 @@ public class Agendamento implements Serializable {
         return vacine;
     }
 
-    public String data() {
+    public String getData() {
         return data;
     }
 
@@ -33,5 +33,7 @@ public class Agendamento implements Serializable {
     }
 
     // metodos
-
+    public String imprimir() {
+        return "Vacina: " + this.vacine + "\nData: " + this.data;
+    }
 }

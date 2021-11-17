@@ -24,7 +24,7 @@ public class Vacinacao implements Serializable {
         return vacina;
     }
 
-    public String data() {
+    public String getData() {
         return data;
     }
 
