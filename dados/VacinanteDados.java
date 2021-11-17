@@ -14,11 +14,11 @@ import java.util.ArrayList;
 
 public class VacinanteDados {
 
-    public void cadastrar(Vacinante vac) throws IOException, ClassNotFoundException {
+    public void cadastrarVacinante(Vacinante vac) throws IOException, ClassNotFoundException {
         ArrayList<Vacinante> vacin = new ArrayList<>();
-        File arq = new File("listaVacinantes");
+        File arq = new File("listaVacinantes.dat");
         if (arq.exists())
-            vacin = listarVacin();
+            vacin = listarVacinante();
 
         vacin.add(vac);
         FileOutputStream fluxo = new FileOutputStream(arq);
@@ -27,36 +27,33 @@ public class VacinanteDados {
         }
     }
 
-    public void cadastrarVacinacao(Vacina vacine) {
-
-    }
-
-    public ArrayList<Vacinante> listarVacin() throws IOException, ClassNotFoundException, FileNotFoundException {
-        ArrayList<Vacinante> vacin;
-        File arq = new File("listaVacinantes");
+    public ArrayList<Vacinante> listarVacinante() throws IOException, ClassNotFoundException, FileNotFoundException {
+        ArrayList<Vacinante> vacinante;
+        File arq = new File("listaVacinantes.dat");
         FileInputStream fluxo = new FileInputStream(arq);
         ObjectInputStream readOb = new ObjectInputStream(fluxo);
-        vacin = (ArrayList<Vacinante>) readOb.readObject();
+        vacinante = (ArrayList<Vacinante>) readOb.readObject();
         readOb.close();
-        return vacin;
+        return vacinante;
     }
 
     public void remover(long cpf)
             throws IOException, FileNotFoundException, ClassNotFoundException, NullPointerException {
-        ArrayList<Vacinante> vacin = new ArrayList<>();
-        File arq = new File("listaVacinantes");
+        ArrayList<Vacinante> vacinante = new ArrayList<>();
+        File arq = new File("listaVacinantes.dat");
         if (arq.exists())
-            vacin = listarVacin();
+            vacinante = listarVacinante();
 
-        for (int i = 0; i < vacin.size(); i++) {
-            if (cpf == vacin.get(i).getCpf()) {
-                vacin.remove(i);
+        for (int i = 0; i < vacinante.size(); i++) {
+            if (cpf == vacinante.get(i).getCPF()) {
+                vacinante.remove(i);
                 break;
             }
         }
         FileOutputStream fluxo = new FileOutputStream(arq);
         try (ObjectOutputStream gravaOb = new ObjectOutputStream(fluxo)) {
-            gravaOb.writeObject(vacin);
+            gravaOb.writeObject(vacinante);
         }
     }
+
 }

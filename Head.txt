@@ -1,0 +1,64 @@
+Vacinante
+    void SalvarAlteracaoCadastro(Pessoa p){
+        Pessoa p2 = p;
+        pessoa.remover(p.cpf);
+        pessoa.cadastrar(p2);
+    }
+
+
+
+
+
+
+    //Dados de vacinação
+
+    import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
+import java.util.ArrayList;
+
+public class VacinacaoDados {
+    public void cadastrarVacinacao(Vacinacao vac) throws IOException, ClassNotFoundException {
+        ArrayList<Vacinacao> vacinao = new ArrayList<>();
+        File arq = new File("listaVacinaçao.dat");
+        if (arq.exists())
+            vacinao = listarVacinacao();
+
+        vacinao.add(vac);
+        FileOutputStream fluxo = new FileOutputStream(arq);
+        try (ObjectOutputStream gravaOb = new ObjectOutputStream(fluxo)) {
+            gravaOb.writeObject(vacinao);
+        }
+    }
+
+    public ArrayList<Vacinacao> listarVacinacao() throws IOException, ClassNotFoundException, FileNotFoundException {
+        ArrayList<Vacinacao> vacinao;
+        File arq = new File("listaVacinaçao.dat");
+        FileInputStream fluxo = new FileInputStream(arq);
+        ObjectInputStream readOb = new ObjectInputStream(fluxo);
+        vacinao = (ArrayList<Vacinacao>) readOb.readObject();
+        readOb.close();
+        return vacinao;
+    }
+
+    public void remover(int dose, Vacina vacina)
+            throws IOException, FileNotFoundException, ClassNotFoundException, NullPointerException {
+        ArrayList<Vacinacao> vacinao = new ArrayList<>();
+        File arq = new File("listaVacinaçao.dat");
+        if (arq.exists())
+            vacinao = listarVacinacao();
+
+        for (int i = 0; i < vacinao.size(); i++) {
+            if (dose == vacinao.get(i).getDose() && vacina.equals(vacinao.get(i).getVacina())) {
+                vacinao.remove(i);
+                break;
+            }
+        }
+        FileOutputStream fluxo = new FileOutputStream(arq);
+        try (ObjectOutputStream gravaOb = new ObjectOutputStream(fluxo)) {
+            gravaOb.writeObject(vacinao);
+        }
+    }
+}

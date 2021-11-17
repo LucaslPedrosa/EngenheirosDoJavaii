@@ -1,6 +1,8 @@
 package modelo;
 
-public class Agendamento {
+import java.io.Serializable;
+
+public class Agendamento implements Serializable {
     Vacina vacine;
     String data;
 

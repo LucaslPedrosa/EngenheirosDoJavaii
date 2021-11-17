@@ -1,23 +1,27 @@
 package modelo;
 
-public class Vacinacao {
-    Vacina vacine;
+import java.io.Serializable;
+
+public class Vacinacao implements Serializable {
+    Vacina vacina;
     String data;
     ProfSaude proficionalSaude;
+    int dose;
 
     // Construtores
     public Vacinacao() {
     }
 
-    public Vacinacao(Vacina vacine, String data, ProfSaude proSRes) {
-        this.vacine = vacine;
+    public Vacinacao(Vacina vacina, String data, ProfSaude proSRes, int dose) {
+        this.vacina = vacina;
         this.data = data;
         this.proficionalSaude = proSRes;
+        this.dose = dose;
     }
 
     // gets e sets
     public Vacina getVacina() {
-        return vacine;
+        return vacina;
     }
 
     public String data() {
@@ -29,7 +33,7 @@ public class Vacinacao {
     }
 
     public void setVacina(Vacina vacin) {
-        this.vacine = vacin;
+        this.vacina = vacin;
     }
 
     public void setData(String data) {
@@ -40,6 +44,17 @@ public class Vacinacao {
         this.proficionalSaude = proSRes;
     }
 
-    // metodos
+    public int getDose() {
+        return dose;
+    }
 
+    public void setDose(int dose) {
+        this.dose = dose;
+    }
+
+    // metodos
+    public String imprimir() {
+        return "Vacina: " + this.vacina.getTipo() + "Dose: " + this.dose + "Lote: " + this.vacina.getLote() + "\nData: "
+                + this.data + "\nProfissional de saúde: " + this.proficionalSaude.getNome();
+    }
 }

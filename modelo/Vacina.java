@@ -1,22 +1,29 @@
 package modelo;
 
-public class Vacina {
+import dados.VacinaDados;
+
+import java.io.FileNotFoundException;
+import java.io.IOException;
+import java.io.Serializable;
+import java.util.ArrayList;
+
+public class Vacina implements Serializable {
     String tipo;
     String data;
     String marca;
     long lote;
-    int dose;
 
     // construtor
 
-    Vacina() {
+    public Vacina() {
 
     }
 
-    public Vacina(String tipo, String data, String marca, long lote, int dose) {
+    public Vacina(String tipo, String data, String marca, long lote) {
         this.tipo = tipo;
-
-        this.dose = dose;
+        this.data = data;
+        this.marca = marca;
+        this.lote = lote;
     }
 
     // gets e sets
@@ -52,17 +59,27 @@ public class Vacina {
         this.lote = lote;
     }
 
-    public int getDose() {
-        return dose;
-    }
-
-    public void setDose(int dose) {
-        this.dose = dose;
-    }
-
     // Metodos
-    //Cadastrar Vacinas
-    public void cadastrarVacinas(){
-        
+    // Cadastrar Vacinas
+
+    public void cadastrarVacina() throws FileNotFoundException, IOException, ClassNotFoundException {
+        VacinaDados v = new VacinaDados();
+        v.cadastrar(this); // Dados do objeto permanece no arquivo disciplinas.txt
+    }
+
+    public ArrayList<Vacina> listarVacina() throws FileNotFoundException, IOException, ClassNotFoundException {
+        VacinaDados v = new VacinaDados();
+        return v.listarVacina();
+    }
+
+    public void removerVacina(String marca, long lote)
+            throws FileNotFoundException, IOException, ClassNotFoundException {
+        VacinaDados v = new VacinaDados();
+        v.removerVacina(marca, lote);
+    }
+
+    public String imprimir() {
+        return "Tipo: " + this.getTipo() + "\nMarca: " + this.getMarca() + "\nLote: " + this.getLote()
+                + "\nData de entrada: " + this.getData();
     }
 }
