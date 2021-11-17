@@ -95,12 +95,16 @@ public class Vacinante implements Serializable {
                 + this.getNascimento() + "\nSexo: " + this.getSexo());
     }
 
-    public void addCartaoVacina(Vacina vacina, String data, ProfSaude proSRes, int dose) {
+    public void addCartaoVacina(Vacina vacina, String data, ProfSaude proSRes, int dose)
+            throws IOException, ClassNotFoundException {
         Vacinacao vnc = new Vacinacao(vacina, data, proSRes, dose);
         cartaoVacina.add(vnc);
+
+        VacinanteDados vudu = new VacinanteDados();
+        vudu.atualizarVacinante(this);
     }
 
-    public void removeCartaoVacina(Vacina vacina, String data, int dose) {
+    public void removeCartaoVacina(Vacina vacina, String data, int dose) throws IOException, ClassNotFoundException {
         Vacinacao v = null;
         for (int i = 0; i < cartaoVacina.size(); i++) {
             if (vacina.equals(cartaoVacina.get(i).getVacina()) && data.equals(cartaoVacina.get(i).getData())
@@ -110,6 +114,9 @@ public class Vacinante implements Serializable {
             }
         }
         cartaoVacina.remove(v);
+
+        VacinanteDados vudu = new VacinanteDados();
+        vudu.atualizarVacinante(this);
     }
 
     public String imprimirCartaoVacina() {
@@ -120,12 +127,15 @@ public class Vacinante implements Serializable {
         return picadas;
     }
 
-    public void agendar(Vacina vacine, String data) {
+    public void agendar(Vacina vacine, String data) throws IOException, ClassNotFoundException {
         Agendamento novo = new Agendamento(vacine, data);
         agenda.add(novo);
+
+        VacinanteDados vudu = new VacinanteDados();
+        vudu.atualizarVacinante(this);
     }
 
-    public void removeAgenda(Vacina vacina, String data) {
+    public void removeAgenda(Vacina vacina, String data) throws IOException, ClassNotFoundException {
         Agendamento a = null;
         for (int i = 0; i < agenda.size(); i++) {
             if (vacina.equals(agenda.get(i).getVacina()) && data.equals(agenda.get(i).getData())) {
@@ -134,6 +144,9 @@ public class Vacinante implements Serializable {
             }
         }
         agenda.remove(a);
+
+        VacinanteDados vudu = new VacinanteDados();
+        vudu.atualizarVacinante(this);
     }
 
     public String imprimirAgenda() { // Como a agenda serve para hipoteticamente ser mostrada no celular da pessoa,

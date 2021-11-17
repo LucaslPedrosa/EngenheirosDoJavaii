@@ -15,7 +15,7 @@ public class ProfSaudeDados {
 
     public void cadastrarProf(ProfSaude profS) throws IOException, ClassNotFoundException {
         ArrayList<ProfSaude> profissional = new ArrayList<>();
-        File arq = new File("listarProfdeSaude.dat");
+        File arq = new File("listarProfdeSaude.ser");
         if (arq.exists())
             profissional = listarProfissionais();
 
@@ -29,7 +29,7 @@ public class ProfSaudeDados {
     public ArrayList<ProfSaude> listarProfissionais()
             throws IOException, ClassNotFoundException, FileNotFoundException {
         ArrayList<ProfSaude> profissional;
-        File arq = new File("listarProfdeSaude.dat");
+        File arq = new File("listarProfdeSaude.ser");
         FileInputStream fluxo = new FileInputStream(arq);
         ObjectInputStream readOb = new ObjectInputStream(fluxo);
         profissional = (ArrayList<ProfSaude>) readOb.readObject();
@@ -40,7 +40,7 @@ public class ProfSaudeDados {
     public void removerProfissional(long numNacionalIdentidade)
             throws IOException, FileNotFoundException, ClassNotFoundException, NullPointerException {
         ArrayList<ProfSaude> profissional = new ArrayList<>();
-        File arq = new File("listarProfdeSaude.dat");
+        File arq = new File("listarProfdeSaude.ser");
         if (arq.exists())
             profissional = listarProfissionais();
 
