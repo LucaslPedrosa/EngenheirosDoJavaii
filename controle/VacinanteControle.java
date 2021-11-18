@@ -4,7 +4,6 @@ import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.ArrayList;
 
-import modelo.ProfSaude;
 import modelo.Vacina;
 import modelo.Vacinacao;
 import modelo.Vacinante;
