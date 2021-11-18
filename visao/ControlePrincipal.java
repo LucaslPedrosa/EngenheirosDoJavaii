@@ -103,6 +103,9 @@ public class ControlePrincipal implements Initializable {
     private Button pesquisarUsuarioButton;
 
     @FXML
+    private Button pesquisarVacinaAdicionarVacinaButton;
+
+    @FXML
     private TextField rgCadastrarUsuarioTextField;
 
     @FXML
@@ -111,6 +114,13 @@ public class ControlePrincipal implements Initializable {
 
     @FXML
     private Label nomeResultLabel;
+
+    
+    @FXML
+    private ComboBox<String> adicionarVacinaPesquisarComboBox;
+
+    @FXML
+    private Label VacinasResultLabel;
 
     @FXML
     private Label cpfResultLabel;

@@ -108,7 +108,7 @@
       </VBox>
       <AnchorPane fx:id="anchorGerador" layoutX="254.0" layoutY="27.0" prefHeight="693.0" prefWidth="1034.0">
          <children>
-            <AnchorPane fx:id="pesquisarAnchorPane" layoutX="-6.0" prefHeight="693.0" prefWidth="1034.0" visible="false">
+            <AnchorPane fx:id="pesquisarAnchorPane" layoutX="-6.0" prefHeight="693.0" prefWidth="1034.0">
                <children>
                   <AnchorPane layoutX="6.0" prefHeight="78.0" prefWidth="1026.0" style="-fx-background-color: #361D7D;" AnchorPane.bottomAnchor="622.0" AnchorPane.leftAnchor="6.0" AnchorPane.rightAnchor="2.0" AnchorPane.topAnchor="0.0">
                      <children>
@@ -130,9 +130,9 @@
                         <Button fx:id="pesquisarUsuarioAction" layoutX="897.0" layoutY="60.0" mnemonicParsing="false" onAction="#pesquisarUsuario" prefHeight="25.0" prefWidth="122.0" style="-fx-background-color: #2C1764;" text="Iniciar busca" textFill="WHITE" />
                      </children>
                   </AnchorPane>
-                  <AnchorPane fx:id="usuarioPesquisadoAnchorPane" layoutX="14.0" layoutY="172.0" prefHeight="482.0" prefWidth="978.0">
+                  <AnchorPane fx:id="usuarioPesquisadoAnchorPane" layoutX="14.0" layoutY="157.0" prefHeight="522.0" prefWidth="1002.0">
                      <children>
-                        <Label layoutX="8.0" layoutY="348.0" prefHeight="27.0" prefWidth="282.0" text=" CPF" textFill="#3f2863">
+                        <Label layoutX="4.0" layoutY="67.0" prefHeight="27.0" prefWidth="282.0" text=" CPF" textFill="#3f2863">
                            <font>
                               <Font name="Arial Bold" size="24.0" />
                            </font>
@@ -140,7 +140,7 @@
                               <Insets left="200.0" />
                            </padding>
                         </Label>
-                        <Label layoutX="14.0" layoutY="384.0" text="RG" textFill="#3f2863">
+                        <Label layoutX="15.0" layoutY="100.0" text="RG" textFill="#3f2863">
                            <font>
                               <Font name="Arial Bold" size="24.0" />
                            </font>
@@ -148,7 +148,7 @@
                               <Insets left="200.0" />
                            </padding>
                         </Label>
-                        <Label layoutX="14.0" layoutY="417.0" text="Sexo" textFill="#3f2863">
+                        <Label layoutX="15.0" layoutY="138.0" text="Sexo" textFill="#3f2863">
                            <font>
                               <Font name="Arial Bold" size="24.0" />
                            </font>
@@ -156,7 +156,7 @@
                               <Insets left="200.0" />
                            </padding>
                         </Label>
-                        <Label layoutX="14.0" layoutY="454.0" text="Nascimento" textFill="#3f2863">
+                        <Label layoutX="14.0" layoutY="176.0" text="Nascimento" textFill="#3f2863">
                            <font>
                               <Font name="Arial Bold" size="24.0" />
                            </font>
@@ -164,7 +164,7 @@
                               <Insets left="200.0" />
                            </padding>
                         </Label>
-                        <Label layoutX="14.0" layoutY="495.0" text="Comorbidades" textFill="#3f2863">
+                        <Label layoutX="15.0" layoutY="211.0" text="Comorbidades" textFill="#3f2863">
                            <font>
                               <Font name="Arial Bold" size="24.0" />
                            </font>
@@ -172,7 +172,7 @@
                               <Insets left="200.0" />
                            </padding>
                         </Label>
-                        <Label layoutX="14.0" layoutY="313.0" text="Nome" textFill="#3f2863">
+                        <Label layoutX="11.0" layoutY="29.0" text="Nome" textFill="#3f2863">
                            <font>
                               <Font name="Arial Bold" size="24.0" />
                            </font>
@@ -180,41 +180,64 @@
                               <Insets left="200.0" />
                            </padding>
                         </Label>
-                        <Label fx:id="nomeResultLabel" layoutX="448.0" layoutY="313.0" prefHeight="27.0" prefWidth="470.0">
+                        <Label fx:id="nomeResultLabel" layoutX="420.0" layoutY="29.0" prefHeight="27.0" prefWidth="470.0">
                            <font>
                               <Font name="Arial Bold" size="24.0" />
                            </font>
                         </Label>
-                        <Label fx:id="cpfResultLabel" layoutX="448.0" layoutY="348.0" prefHeight="27.0" prefWidth="381.0">
+                        <Label fx:id="cpfResultLabel" layoutX="420.0" layoutY="67.0" prefHeight="27.0" prefWidth="381.0">
                            <font>
                               <Font name="Arial Bold" size="24.0" />
                            </font>
                         </Label>
-                        <Label fx:id="rgResultLabel" layoutX="448.0" layoutY="384.0" prefHeight="27.0" prefWidth="369.0">
+                        <Label fx:id="rgResultLabel" layoutX="420.0" layoutY="100.0" prefHeight="27.0" prefWidth="369.0">
                            <font>
                               <Font name="Arial Bold" size="24.0" />
                            </font>
                         </Label>
-                        <Label fx:id="sexoResultLabel" layoutX="448.0" layoutY="417.0" prefHeight="27.0" prefWidth="325.0">
+                        <Label fx:id="sexoResultLabel" layoutX="420.0" layoutY="138.0" prefHeight="27.0" prefWidth="325.0">
                            <font>
                               <Font name="Arial Bold" size="24.0" />
                            </font>
                         </Label>
-                        <Label fx:id="nascimentoResultLabel" layoutX="448.0" layoutY="454.0" prefHeight="27.0" prefWidth="258.0">
+                        <Label fx:id="nascimentoResultLabel" layoutX="420.0" layoutY="176.0" prefHeight="27.0" prefWidth="258.0">
                            <font>
                               <Font name="Arial Bold" size="24.0" />
                            </font>
                         </Label>
-                        <Label fx:id="comorbidadesResultLabel" layoutX="448.0" layoutY="495.0" prefHeight="27.0" prefWidth="470.0">
+                        <Label fx:id="comorbidadesResultLabel" layoutX="420.0" layoutY="211.0" prefHeight="76.0" prefWidth="501.0">
                            <font>
                               <Font name="Arial Bold" size="24.0" />
                            </font>
                         </Label>
+                        <Label layoutX="37.0" layoutY="319.0" text="Vacinas" textFill="#3f2863">
+                           <font>
+                              <Font name="Arial Bold" size="24.0" />
+                           </font>
+                           <padding>
+                              <Insets left="200.0" />
+                           </padding>
+                        </Label>
+                        <Label fx:id="VacinasResultLabel" layoutX="426.0" layoutY="319.0" prefHeight="76.0" prefWidth="500.0">
+                           <font>
+                              <Font name="Arial Bold" size="24.0" />
+                           </font>
+                        </Label>
+                        <Label layoutX="3.0" layoutY="434.0" text="Adicionar vacina" textFill="#3f2863">
+                           <font>
+                              <Font name="Arial Bold" size="24.0" />
+                           </font>
+                           <padding>
+                              <Insets left="200.0" />
+                           </padding>
+                        </Label>
+                        <ComboBox fx:id="adicionarVacinaPesquisarComboBox" layoutX="420.0" layoutY="435.0" prefHeight="25.0" prefWidth="363.0" />
+                        <Button fx:id="pesquisarVacinaAdicionarVacinaButton" layoutX="804.0" layoutY="435.0" mnemonicParsing="false" onAction="#pesquisarUsuario" prefHeight="25.0" prefWidth="122.0" style="-fx-background-color: #2C1764;" text="Iniciar busca" textFill="WHITE" />
                      </children>
                   </AnchorPane>
                </children>
             </AnchorPane>
-            <AnchorPane fx:id="cadastrarUsuarioAnchorPane" prefHeight="693.0" prefWidth="1034.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+            <AnchorPane fx:id="cadastrarUsuarioAnchorPane" prefHeight="693.0" prefWidth="1034.0" visible="false" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                <children>
                   <AnchorPane layoutY="247.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="446.0" prefWidth="1034.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="247.0">
                      <children>
