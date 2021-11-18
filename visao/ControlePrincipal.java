@@ -158,6 +158,7 @@ public class ControlePrincipal implements Initializable {
        }catch(Exception e){
            adicionarVacinaPesquisarComboBox.getItems().addAll("Não há Vacinas Registradas");
        }
+
         // BOTOES BOTOES BOTOES BOTOES BOTOES BOTOES
         exitButton.setOnMouseClicked(Event -> {
             Stage stage;
@@ -172,6 +173,49 @@ public class ControlePrincipal implements Initializable {
         pesquisarUsuarioButton.setOnMouseExited(Event -> {
             pesquisarUsuarioButton.setStyle("-fx-Background-Color: #2C1764;");
         });
+
+        pesquisarUsuarioAction.setOnMouseEntered(Event -> {
+            pesquisarUsuarioAction.setStyle("-fx-Background-Color: #582fc8;");
+        });
+
+        pesquisarUsuarioAction.setOnMouseExited(Event -> {
+            pesquisarUsuarioAction.setStyle("-fx-Background-Color: #2C1764;");
+        });
+
+        pesquisarVacinaAdicionarVacinaButton.setOnMouseEntered(Event -> {
+            pesquisarVacinaAdicionarVacinaButton.setStyle("-fx-Background-Color: #582fc8;");
+        });
+
+        pesquisarVacinaAdicionarVacinaButton.setOnMouseExited(Event -> {
+            pesquisarVacinaAdicionarVacinaButton.setStyle("-fx-Background-Color: #2C1764;");
+        });
+
+        cadastrarUsuarioAction.setOnMouseExited(Event -> {
+            cadastrarUsuarioAction.setStyle("-fx-Background-Color: #2C1764;");
+        });
+
+        cadastrarUsuarioAction.setOnMouseEntered(Event -> {
+            cadastrarUsuarioAction.setStyle("-fx-Background-Color: #582fc8;");
+        });
+
+        cadastrarProfissionalAction.setOnMouseEntered(Event -> {
+            cadastrarProfissionalAction.setStyle("-fx-Background-Color: #582fc8;");
+        });
+
+        cadastrarProfissionalAction.setOnMouseExited(Event -> {
+            cadastrarProfissionalAction.setStyle("-fx-Background-Color: #2C1764;");
+        });
+
+        cadastrarVacinaAction.setOnMouseExited(Event -> {
+            cadastrarVacinaAction.setStyle("-fx-Background-Color: #2C1764;");
+        });
+
+        cadastrarVacinaAction.setOnMouseEntered(Event -> {
+            cadastrarVacinaAction.setStyle("-fx-Background-Color: #582fc8;");
+        });
+
+
+        
 
         pesquisarUsuarioButton.setOnMouseClicked(Event -> {
             pesquisarAnchorPane.setVisible(true);
@@ -246,7 +290,7 @@ public class ControlePrincipal implements Initializable {
 
     public void pesquisarUsuario(ActionEvent event) throws Exception {
         long cpf = Long.parseLong(buscarPesquisarUsuarioTextField.getText());
-
+        usuarioPesquisadoAnchorPane.setVisible(true);
         Vacinante vacinante = vacinanteControle.pesquisarVacinante(cpf);
         nomeResultLabel.setText(vacinante.getNome());
         cpfResultLabel.setText(String.valueOf(vacinante.getCPF()));
