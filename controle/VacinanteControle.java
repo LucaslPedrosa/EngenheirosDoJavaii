@@ -89,22 +89,20 @@ public class VacinanteControle {
         return levaPicada.imprimirCartaoVacina();
     }
 
-    public void agendar(String marca, long lote, String data) throws IOException, ClassNotFoundException {
-        VacinaControle vacina = new VacinaControle();
-
-        Vacinante levaPicada = new Vacinante();
-        levaPicada.agendar(vacina.pesquisarVacina(marca, lote), data);
-    }
-
-    public void removeAgenda(Vacina vacina, String data) throws IOException, ClassNotFoundException {
-        Vacinante levaPicada = new Vacinante();
-        levaPicada.removeAgenda(vacina, data);
-    }
-
-    public String imprimirAgenda() {
-        Vacinante levaPicada = new Vacinante();
-        return levaPicada.imprimirAgenda();
-    }
+    /*
+     * public void agendar(String marca, long lote, String data) throws IOException,
+     * ClassNotFoundException { VacinaControle vacina = new VacinaControle();
+     * 
+     * Vacinante levaPicada = new Vacinante();
+     * levaPicada.agendar(vacina.pesquisarVacina(marca, lote), data); }
+     * 
+     * public void removeAgenda(Vacina vacina, String data) throws IOException,
+     * ClassNotFoundException { Vacinante levaPicada = new Vacinante();
+     * levaPicada.removeAgenda(vacina, data); }
+     * 
+     * public String imprimirAgenda() { Vacinante levaPicada = new Vacinante();
+     * return levaPicada.imprimirAgenda(); }
+     */
 
     public void salvarAlteracoesCadastro(Vacinante a, Vacinante b)
             throws ClassNotFoundException, FileNotFoundException, IOException {
