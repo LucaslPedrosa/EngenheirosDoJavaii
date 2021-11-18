@@ -14,7 +14,7 @@ import java.util.ArrayList;
 public class VacinaDados {
     public void cadastrar(Vacina vac) throws IOException, ClassNotFoundException {
         ArrayList<Vacina> vacinas = new ArrayList<>();
-        File arq = new File("listaVacina.dat");
+        File arq = new File("listaVacina.ser");
         if (arq.exists())
             vacinas = listarVacina();
 
@@ -27,7 +27,7 @@ public class VacinaDados {
 
     public ArrayList<Vacina> listarVacina() throws IOException, ClassNotFoundException, FileNotFoundException {
         ArrayList<Vacina> vacinas;
-        File arq = new File("listaVacina.dat");
+        File arq = new File("listaVacina.ser");
         FileInputStream fluxo = new FileInputStream(arq);
         ObjectInputStream readOb = new ObjectInputStream(fluxo);
         vacinas = (ArrayList<Vacina>) readOb.readObject();
@@ -38,12 +38,12 @@ public class VacinaDados {
     public void removerVacina(String marca, long lote)
             throws IOException, FileNotFoundException, ClassNotFoundException, NullPointerException {
         ArrayList<Vacina> vacinas = new ArrayList<>();
-        File arq = new File("listaVacina.dat");
+        File arq = new File("listaVacina.ser");
         if (arq.exists())
             vacinas = listarVacina();
 
         for (int i = 0; i < vacinas.size(); i++) {
-            if (marca == vacinas.get(i).getMarca() && lote == vacinas.get(i).getLote()) {
+            if (marca.equals(vacinas.get(i).getMarca()) && lote == vacinas.get(i).getLote()) {
                 vacinas.remove(i);
                 break;
             }

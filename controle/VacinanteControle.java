@@ -4,6 +4,8 @@ import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.ArrayList;
 
+import modelo.ProfSaude;
+import modelo.Vacina;
 import modelo.Vacinante;
 
 public class VacinanteControle {
@@ -13,7 +15,7 @@ public class VacinanteControle {
         vt.cadastrar();
     }
 
-    public ArrayList<Vacinante> listarVacinante() throws FileNotFoundException, IOException, ClassNotFoundException {
+    private ArrayList<Vacinante> listarVacinante() throws FileNotFoundException, IOException, ClassNotFoundException {
         Vacinante vt = new Vacinante();
         return vt.listarVaciante();
     }
@@ -53,6 +55,44 @@ public class VacinanteControle {
         }
 
         return p;
+    }
+
+    public void addCartaoVacina(String marca, long lote, String data, long numNacionalIdentidade, int dose)
+            throws IOException, ClassNotFoundException {
+        VacinaControle vacina = new VacinaControle();
+
+        ProfSaudeControle profSaude = new ProfSaudeControle();
+
+        Vacinante levaPicada = new Vacinante();
+        levaPicada.addCartaoVacina(vacina.pesquisarVacina(marca, lote), data,
+                profSaude.pesquisarProfissional(numNacionalIdentidade), dose);
+    }
+
+    public void removeCartaoVacina(Vacina vacina, String data, int dose) throws IOException, ClassNotFoundException {
+        Vacinante levaPicada = new Vacinante();
+        levaPicada.removeCartaoVacina(vacina, data, dose);
+    }
+
+    public String imprimirCartaoVacina() {
+        Vacinante levaPicada = new Vacinante();
+        return levaPicada.imprimirCartaoVacina();
+    }
+
+    public void agendar(String marca, long lote, String data) throws IOException, ClassNotFoundException {
+        VacinaControle vacina = new VacinaControle();
+
+        Vacinante levaPicada = new Vacinante();
+        levaPicada.agendar(vacina.pesquisarVacina(marca, lote), data);
+    }
+
+    public void removeAgenda(Vacina vacina, String data) throws IOException, ClassNotFoundException {
+        Vacinante levaPicada = new Vacinante();
+        levaPicada.removeAgenda(vacina, data);
+    }
+
+    public String imprimirAgenda() {
+        Vacinante levaPicada = new Vacinante();
+        return levaPicada.imprimirAgenda();
     }
 
     public void salvarAlteracoesCadastro(Vacinante a, Vacinante b)

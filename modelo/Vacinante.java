@@ -7,24 +7,26 @@ import java.util.ArrayList;
 
 import dados.VacinanteDados;
 
-public class Vacinante extends Pessoa implements Serializable {
+public class Vacinante implements Serializable {
 
+    private String nome;
     private String sexo;
     private String nascimento;
     private String problemasDeSaude;
     private long cpf;
     private long rg;
     private ArrayList<Vacinacao> cartaoVacina;
+    private ArrayList<Agendamento> agenda;
 
     public Vacinante(String nome) {
-        super(nome);
+        this.nome = nome;
     }
 
     public Vacinante() {
     }
 
     public Vacinante(String nome, String sexo, String nascimento, String problemasDeSaude, long cpf) {
-        super(nome);
+        this.nome = nome;
         this.sexo = sexo;
         this.nascimento = nascimento;
         this.problemasDeSaude = problemasDeSaude;
@@ -73,11 +75,6 @@ public class Vacinante extends Pessoa implements Serializable {
     }
 
     // metodos
-    public void addCartaoVacina(Vacina vacina, String data, ProfSaude proSRes, int dose) {
-        Vacinacao vnc = new Vacinacao(vacina, data, proSRes, dose);
-        cartaoVacina.add(vnc);
-    }
-
     public void cadastrar() throws IOException, ClassNotFoundException {
         VacinanteDados vd = new VacinanteDados();
         vd.cadastrarVacinante(this);
@@ -94,8 +91,32 @@ public class Vacinante extends Pessoa implements Serializable {
     }
 
     public String imprimirCadastro() {
-        return "Nome: " + super.getNome() + "\nCPF: " + this.getCPF() + "\nRG: " + this.getRG() + "\nNascimento: "
-                + this.getNascimento() + "\nSexo: " + this.getSexo() + "\nSexo: " + this.getSexo();
+        return ("Nome: " + this.nome + "\nCPF: " + this.getCPF() + "\nRG: " + this.getRG() + "\nNascimento: "
+                + this.getNascimento() + "\nSexo: " + this.getSexo());
+    }
+
+    public void addCartaoVacina(Vacina vacina, String data, ProfSaude proSRes, int dose)
+            throws IOException, ClassNotFoundException {
+        Vacinacao vnc = new Vacinacao(vacina, data, proSRes, dose);
+        cartaoVacina.add(vnc);
+
+        VacinanteDados vudu = new VacinanteDados();
+        vudu.atualizarVacinante(this);
+    }
+
+    public void removeCartaoVacina(Vacina vacina, String data, int dose) throws IOException, ClassNotFoundException {
+        Vacinacao v = null;
+        for (int i = 0; i < cartaoVacina.size(); i++) {
+            if (vacina.equals(cartaoVacina.get(i).getVacina()) && data.equals(cartaoVacina.get(i).getData())
+                    && cartaoVacina.get(i).getDose() == dose) {
+                v = cartaoVacina.get(i); // Caso retorne nullPointer, significa que não foi encontrado
+                break;
+            }
+        }
+        cartaoVacina.remove(v);
+
+        VacinanteDados vudu = new VacinanteDados();
+        vudu.atualizarVacinante(this);
     }
 
     public String imprimirCartaoVacina() {
@@ -105,4 +126,36 @@ public class Vacinante extends Pessoa implements Serializable {
         }
         return picadas;
     }
+
+    public void agendar(Vacina vacine, String data) throws IOException, ClassNotFoundException {
+        Agendamento novo = new Agendamento(vacine, data);
+        agenda.add(novo);
+
+        VacinanteDados vudu = new VacinanteDados();
+        vudu.atualizarVacinante(this);
+    }
+
+    public void removeAgenda(Vacina vacina, String data) throws IOException, ClassNotFoundException {
+        Agendamento a = null;
+        for (int i = 0; i < agenda.size(); i++) {
+            if (vacina.equals(agenda.get(i).getVacina()) && data.equals(agenda.get(i).getData())) {
+                a = agenda.get(i); // Caso retorne nullPointer, significa que não foi encontrado
+                break;
+            }
+        }
+        agenda.remove(a);
+
+        VacinanteDados vudu = new VacinanteDados();
+        vudu.atualizarVacinante(this);
+    }
+
+    public String imprimirAgenda() { // Como a agenda serve para hipoteticamente ser mostrada no celular da pessoa,
+                                     // esse método provavelmente não será usado nesta aplicação
+        String FuturasPicadas = "";
+        for (int i = 0; i < agenda.size(); i++) {
+            FuturasPicadas += agenda.get(i).imprimir() + "\n\n\n";
+        }
+        return FuturasPicadas;
+    }
+
 }

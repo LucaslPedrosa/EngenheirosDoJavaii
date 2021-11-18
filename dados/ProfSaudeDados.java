@@ -14,44 +14,45 @@ import java.util.ArrayList;
 public class ProfSaudeDados {
 
     public void cadastrarProf(ProfSaude profS) throws IOException, ClassNotFoundException {
-        ArrayList<ProfSaude> proficional = new ArrayList<>();
-        File arq = new File("listarProfdeSaude.dat");
+        ArrayList<ProfSaude> profissional = new ArrayList<>();
+        File arq = new File("listarProfdeSaude.ser");
         if (arq.exists())
-            proficional = listarProficionais();
+            profissional = listarProfissionais();
 
-        proficional.add(profS);
+        profissional.add(profS);
         FileOutputStream fluxo = new FileOutputStream(arq);
         try (ObjectOutputStream gravaOb = new ObjectOutputStream(fluxo)) {
-            gravaOb.writeObject(proficional);
+            gravaOb.writeObject(profissional);
         }
     }
 
-    public ArrayList<ProfSaude> listarProficionais() throws IOException, ClassNotFoundException, FileNotFoundException {
-        ArrayList<ProfSaude> proficional;
-        File arq = new File("listarProfdeSaude.dat");
+    public ArrayList<ProfSaude> listarProfissionais()
+            throws IOException, ClassNotFoundException, FileNotFoundException {
+        ArrayList<ProfSaude> profissional;
+        File arq = new File("listarProfdeSaude.ser");
         FileInputStream fluxo = new FileInputStream(arq);
         ObjectInputStream readOb = new ObjectInputStream(fluxo);
-        proficional = (ArrayList<ProfSaude>) readOb.readObject();
+        profissional = (ArrayList<ProfSaude>) readOb.readObject();
         readOb.close();
-        return proficional;
+        return profissional;
     }
 
-    public void removerProficional(long numNacionalIdentidade)
+    public void removerProfissional(long numNacionalIdentidade)
             throws IOException, FileNotFoundException, ClassNotFoundException, NullPointerException {
-        ArrayList<ProfSaude> proficional = new ArrayList<>();
-        File arq = new File("listarProfdeSaude.dat");
+        ArrayList<ProfSaude> profissional = new ArrayList<>();
+        File arq = new File("listarProfdeSaude.ser");
         if (arq.exists())
-            proficional = listarProficionais();
+            profissional = listarProfissionais();
 
-        for (int i = 0; i < proficional.size(); i++) {
-            if (numNacionalIdentidade == proficional.get(i).getNumNacionalIdentidade()) {
-                proficional.remove(i);
+        for (int i = 0; i < profissional.size(); i++) {
+            if (numNacionalIdentidade == profissional.get(i).getNumNacionalIdentidade()) {
+                profissional.remove(i);
                 break;
             }
         }
         FileOutputStream fluxo = new FileOutputStream(arq);
         try (ObjectOutputStream gravaOb = new ObjectOutputStream(fluxo)) {
-            gravaOb.writeObject(proficional);
+            gravaOb.writeObject(profissional);
         }
     }
 }
