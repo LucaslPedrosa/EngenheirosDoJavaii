@@ -132,7 +132,7 @@
                   </AnchorPane>
                   <AnchorPane fx:id="usuarioPesquisadoAnchorPane" layoutX="14.0" layoutY="172.0" prefHeight="482.0" prefWidth="978.0">
                      <children>
-                        <Label layoutX="8.0" layoutY="348.0" text="CPF" textFill="#3f2863">
+                        <Label layoutX="8.0" layoutY="348.0" prefHeight="27.0" prefWidth="282.0" text=" CPF" textFill="#3f2863">
                            <font>
                               <Font name="Arial Bold" size="24.0" />
                            </font>
@@ -179,6 +179,36 @@
                            <padding>
                               <Insets left="200.0" />
                            </padding>
+                        </Label>
+                        <Label fx:id="nomeResultLabel" layoutX="448.0" layoutY="313.0" prefHeight="27.0" prefWidth="470.0">
+                           <font>
+                              <Font name="Arial Bold" size="24.0" />
+                           </font>
+                        </Label>
+                        <Label fx:id="cpfResultLabel" layoutX="448.0" layoutY="348.0" prefHeight="27.0" prefWidth="381.0">
+                           <font>
+                              <Font name="Arial Bold" size="24.0" />
+                           </font>
+                        </Label>
+                        <Label fx:id="rgResultLabel" layoutX="448.0" layoutY="384.0" prefHeight="27.0" prefWidth="369.0">
+                           <font>
+                              <Font name="Arial Bold" size="24.0" />
+                           </font>
+                        </Label>
+                        <Label fx:id="sexoResultLabel" layoutX="448.0" layoutY="417.0" prefHeight="27.0" prefWidth="325.0">
+                           <font>
+                              <Font name="Arial Bold" size="24.0" />
+                           </font>
+                        </Label>
+                        <Label fx:id="nascimentoResultLabel" layoutX="448.0" layoutY="454.0" prefHeight="27.0" prefWidth="258.0">
+                           <font>
+                              <Font name="Arial Bold" size="24.0" />
+                           </font>
+                        </Label>
+                        <Label fx:id="comorbidadesResultLabel" layoutX="448.0" layoutY="495.0" prefHeight="27.0" prefWidth="470.0">
+                           <font>
+                              <Font name="Arial Bold" size="24.0" />
+                           </font>
                         </Label>
                      </children>
                   </AnchorPane>

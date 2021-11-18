@@ -9,9 +9,6 @@ public class Vacinacao implements Serializable {
     int dose;
 
     // Construtores
-    public Vacinacao() {
-    }
-
     public Vacinacao(Vacina vacina, String data, ProfSaude proSRes, int dose) {
         this.vacina = vacina;
         this.data = data;

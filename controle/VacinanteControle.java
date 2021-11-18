@@ -68,7 +68,7 @@ public class VacinanteControle {
                 profSaude.pesquisarProfissional(numNacionalIdentidade), dose);
     }
 
-    public void removeCartaoVacina(Vacina vacina, String data, int dose) throws IOException, ClassNotFoundException {
+    public void removeCartaoVacina(Vacina vacina, String data, int dose) throws OException, ClassNotFoundException {
         Vacinante levaPicada = new Vacinante();
         levaPicada.removeCartaoVacina(vacina, data, dose);
     }
