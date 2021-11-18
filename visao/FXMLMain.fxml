@@ -130,7 +130,7 @@
                         <Button fx:id="pesquisarUsuarioAction" layoutX="897.0" layoutY="60.0" mnemonicParsing="false" onAction="#pesquisarUsuario" prefHeight="25.0" prefWidth="122.0" style="-fx-background-color: #2C1764;" text="Iniciar busca" textFill="WHITE" />
                      </children>
                   </AnchorPane>
-                  <AnchorPane fx:id="usuarioPesquisadoAnchorPane" layoutX="18.0" layoutY="157.0" prefHeight="522.0" prefWidth="1002.0">
+                  <AnchorPane fx:id="usuarioPesquisadoAnchorPane" layoutX="18.0" layoutY="157.0" prefHeight="522.0" prefWidth="1002.0" visible="false">
                      <children>
                         <Label layoutX="4.0" layoutY="67.0" prefHeight="27.0" prefWidth="282.0" text=" CPF" textFill="#3f2863">
                            <font>
