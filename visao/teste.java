@@ -36,7 +36,7 @@ public class teste {
         // System.out.println(vacinante.ImprimirTodosCadastros()); // ok
 
         vacinante.addCartaoVacina("Pifaizer", 40028922, "69.69.8008", 40028922, 1);
-        // vacinante.imprimirCartaoVacina(40028922);
+        vacinante.imprimirCartaoVacina(40028922);
 
         // vacinante.agendar("Pifaizer", 40028922, "23.12.1223");
         // vacinante.imprimirAgenda();

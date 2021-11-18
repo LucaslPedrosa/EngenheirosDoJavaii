@@ -15,8 +15,8 @@ public class Vacinante implements Serializable {
     private String problemasDeSaude;
     private long cpf;
     private long rg;
-    private Vacinacao cartaoVacina;
-    private ArrayList<Agendamento> agenda;
+    private ArrayList<Vacinacao> cartaoVacina = new ArrayList<>();
+    private ArrayList<Agendamento> agenda = new ArrayList<>();
 
     public Vacinante(String nome) {
         this.nome = nome;
@@ -31,6 +31,12 @@ public class Vacinante implements Serializable {
         this.nascimento = nascimento;
         this.problemasDeSaude = problemasDeSaude;
         this.cpf = cpf;
+
+        Vacinacao v = new Vacinacao();
+        Agendamento a = new Agendamento();
+
+        this.cartaoVacina.add(v);
+        this.agenda.add(a);
     }
 
     // gets e sets
@@ -103,24 +109,29 @@ public class Vacinante implements Serializable {
                 + this.getNascimento() + "\nSexo: " + this.getSexo());
     }
 
-    public void addCartaoVacina(Vacina vacina, String data, ProfSaude proSRes, int dose)
+    public void addCartaoVacina(Vacinacao vac)
             throws IOException, ClassNotFoundException {
         Vacinacao vnc = new Vacinacao(vacina, data, proSRes, dose);
-        this.cartaoVacina = vnc;
+        cartaoVacina.add(vc);
 
         VacinanteDados vudu = new VacinanteDados();
         vudu.atualizarVacinante(this);
     }
 
-    public void removeCartaoVacina(Vacina vacina, String data, int dose) throws
-    IOException, ClassNotFoundException { Vacinacao v = null; for (int i = 0; i <
-     cartaoVacina.size(); i++) { if
-     (vacina.equals(cartaoVacina.get(i).getVacina()) &&
-     data.equals(cartaoVacina.get(i).getData()) && cartaoVacina.get(i).getDose()
-     == dose) { v = cartaoVacina.get(i); // Caso retorne nullPointer, significa
-     que não foi encontrado break; } } cartaoVacina.remove(v);
-     
-     VacinanteDados vudu = new VacinanteDados(); vudu.atualizarVacinante(this); }
+    public void removeCartaoVacina(Vacina vacina, String data, int dose) throws IOException, ClassNotFoundException {
+        Vacinacao v = null;
+        for (int i = 0; i < cartaoVacina.size(); i++) {
+            if (vacina.equals(cartaoVacina.get(i).getVacina()) && data.equals(cartaoVacina.get(i).getData())
+                    && cartaoVacina.get(i).getDose() == dose) {
+                v = cartaoVacina.get(i); // Caso retorne nullPointer, significa que não foi encontrado
+                break;
+            }
+        }
+        cartaoVacina.remove(v);
+
+        VacinanteDados vudu = new VacinanteDados();
+        vudu.atualizarVacinante(this);
+    }
 
     public String imprimirCartaoVacina() {
         String picadas = "";

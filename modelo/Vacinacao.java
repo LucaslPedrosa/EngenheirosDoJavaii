@@ -16,6 +16,9 @@ public class Vacinacao implements Serializable {
         this.dose = dose;
     }
 
+    public Vacinacao() {
+    }
+
     // gets e sets
     public Vacina getVacina() {
         return vacina;

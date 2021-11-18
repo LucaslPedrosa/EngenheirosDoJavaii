@@ -4,6 +4,7 @@ import controle.*;
 import modelo.*;
 
 import java.net.URL;
+import java.util.ArrayList;
 import java.util.ResourceBundle;
 
 import javafx.css.PseudoClass;
@@ -115,7 +116,6 @@ public class ControlePrincipal implements Initializable {
     @FXML
     private Label nomeResultLabel;
 
-    
     @FXML
     private ComboBox<String> adicionarVacinaPesquisarComboBox;
 
@@ -153,7 +153,11 @@ public class ControlePrincipal implements Initializable {
     public void initialize(URL location, ResourceBundle resources) {
 
         sexoCadastrarUsuarioTextField.getItems().addAll(sexoCadastrarUsuario);
-
+       try{
+         adicionarVacinaPesquisarComboBox.getItems().addAll((vacinaControle.listarVacina()).toArray(new String[vacinaControle.listarVacina().size()]));
+       }catch(Exception e){
+           adicionarVacinaPesquisarComboBox.getItems().addAll("Não há Vacinas Registradas");
+       }
         // BOTOES BOTOES BOTOES BOTOES BOTOES BOTOES
         exitButton.setOnMouseClicked(Event -> {
             Stage stage;
