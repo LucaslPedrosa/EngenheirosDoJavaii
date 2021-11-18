@@ -14,7 +14,7 @@ public class ProfSaudeControle {
         ps.cadastrar();
     }
 
-    public ArrayList<ProfSaude> listarVacina() throws FileNotFoundException, IOException, ClassNotFoundException {
+    public ArrayList<ProfSaude> listarProfSaude() throws FileNotFoundException, IOException, ClassNotFoundException {
         ProfSaude ps = new ProfSaude();
         return ps.listarProfissionais();
     }
@@ -28,7 +28,7 @@ public class ProfSaudeControle {
     public ProfSaude pesquisarProfissional(long numNacionalIdentidade)
             throws FileNotFoundException, IOException, ClassNotFoundException {
         ProfSaude ps = null;
-        ArrayList<ProfSaude> proficionais = listarVacina();
+        ArrayList<ProfSaude> proficionais = listarProfSaude();
         for (int i = 0; i < proficionais.size(); i++) {
             if (numNacionalIdentidade == proficionais.get(i).getNumNacionalIdentidade()) {
                 ps = proficionais.get(i);
@@ -45,10 +45,10 @@ public class ProfSaudeControle {
     }
 
     public String ImprimirTodos() throws ClassNotFoundException, FileNotFoundException, IOException {
-        ArrayList<ProfSaude> vacinas = listarVacina();
+        ArrayList<ProfSaude> profissionais = listarProfSaude();
         String p = "";
-        for (int i = 0; i < vacinas.size(); i++) {
-            p += vacinas.get(i).imprimir() + "\n\n\n";
+        for (int i = 0; i < profissionais.size(); i++) {
+            p += profissionais.get(i).imprimir() + "\n\n\n";
         }
         return p;
     }
