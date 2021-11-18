@@ -8,24 +8,26 @@ import java.util.ArrayList;
 import dados.VacinacaoDados;
 
 public class Vacinacao implements Serializable {
-    Vacina vacina;
+    String vacina;
     String data;
-    ProfSaude proficionalSaude;
+    String proficionalSaude;
     int dose;
+    long lote;
 
     // Construtores
-    public Vacinacao(Vacina vacina, String data, ProfSaude proSRes, int dose) {
-        this.vacina = vacina;
+    public Vacinacao(String nomeVacina, long lote, String data, String nomeProSRes, int dose) {
+        this.vacina = nomeVacina;
         this.data = data;
-        this.proficionalSaude = proSRes;
+        this.proficionalSaude = nomeProSRes;
         this.dose = dose;
+        this.lote = lote;
     }
 
     public Vacinacao() {
     }
 
     // gets e sets
-    public Vacina getVacina() {
+    public String getVacina() {
         return vacina;
     }
 
@@ -33,11 +35,19 @@ public class Vacinacao implements Serializable {
         return data;
     }
 
-    public ProfSaude getProficionalSaude() {
+    public String getProficionalSaude() {
         return proficionalSaude;
     }
 
-    public void setVacina(Vacina vacin) {
+    public long getLote() {
+        return this.lote;
+    }
+
+    public void setLote(long lote) {
+        this.lote = lote;
+    }
+
+    public void setVacina(String vacin) {
         this.vacina = vacin;
     }
 
@@ -45,7 +55,7 @@ public class Vacinacao implements Serializable {
         this.data = data;
     }
 
-    public void setProficionalSaude(ProfSaude proSRes) {
+    public void setProficionalSaude(String proSRes) {
         this.proficionalSaude = proSRes;
     }
 
@@ -59,9 +69,8 @@ public class Vacinacao implements Serializable {
 
     // metodos
     public String imprimir() {
-        return (/* "Vacina: " + this.vacina.getTipo() + */ "\nDose: " + this.dose
-                + /* "\nLote: " + this.vacina.getLote() */
-                "\nData: " + this.data/* + "\nProfissional de saúde: " + this.proficionalSaude.getNome() */);
+        return ("Vacina: " + this.vacina + "\nDose: " + this.dose + "\nLote: " + this.lote + "\nData: " + this.data
+                + "\nProfissional de saúde: " + this.proficionalSaude);
     }
 
     public void cadastrar() throws IOException, ClassNotFoundException {

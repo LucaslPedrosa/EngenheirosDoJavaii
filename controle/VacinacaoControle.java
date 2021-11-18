@@ -10,9 +10,9 @@ import modelo.Vacinacao;
 
 public class VacinacaoControle {
 
-    public void cadastrar(Vacina vacina, String data, ProfSaude proSRes, int dose)
+    public void cadastrar(String nomeVacina, long lote, String data, String nomeProSRes, int dose)
             throws FileNotFoundException, IOException, ClassNotFoundException {
-        Vacinacao vac = new Vacinacao(vacina, data, proSRes, dose);
+        Vacinacao vac = new Vacinacao(nomeVacina, lote, data, nomeProSRes, dose);
         vac.cadastrar();
     }
 
@@ -27,13 +27,12 @@ public class VacinacaoControle {
         ps.removerVacinacao(vacina, data, proSRes, dose);
     }
 
-    public Vacinacao pesquisarVacinacao(Vacina vacina, String data, ProfSaude proSRes, int dose)
+    public Vacinacao pesquisarVacinacao(String data, int dose)
             throws FileNotFoundException, IOException, ClassNotFoundException {
         Vacinacao vac = null;
         ArrayList<Vacinacao> vacinacoes = listarVacinacao();
         for (int i = 0; i < vacinacoes.size(); i++) {
-            if (vacina.equals(vacinacoes.get(i).getVacina()) && proSRes.equals(vacinacoes.get(i).getProficionalSaude())
-                    && data.equals(vacinacoes.get(i).getData()) && dose == vacinacoes.get(i).getDose()) {
+            if (data.equals(vacinacoes.get(i).getData()) && dose == vacinacoes.get(i).getDose()) {
                 vac = vacinacoes.get(i);
                 break;
             }
@@ -43,7 +42,7 @@ public class VacinacaoControle {
 
     public String imprimir(Vacina vacina, String data, ProfSaude proSRes, int dose)
             throws ClassNotFoundException, FileNotFoundException, IOException {
-        Vacinacao vac = pesquisarVacinacao(vacina, data, proSRes, dose);
+        Vacinacao vac = pesquisarVacinacao(data, dose);
         return vac.imprimir();
     }
 

@@ -35,8 +35,13 @@ public class teste {
         // vacinante.removerVacinante(40028922); ok
         // System.out.println(vacinante.ImprimirTodosCadastros()); // ok
 
-        vacinante.addCartaoVacina("Pifaizer", 40028922, "69.69.8008", 40028922, 1);
+        vacinante.addCartaoVacina("Pifaizer", 40028922, "e", 40028922, 4);
+
         System.out.println(vacinante.imprimirCartaoVacina(40028922));
+
+        // VacinacaoControle help = new VacinacaoControle();
+
+        // System.out.println(help.pesquisarVacinacao("69.69.8008", 1).imprimir());
 
         // vacinante.agendar("Pifaizer", 40028922, "23.12.1223");
         // vacinante.imprimirAgenda();

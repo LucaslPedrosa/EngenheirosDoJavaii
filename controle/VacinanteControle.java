@@ -6,6 +6,7 @@ import java.util.ArrayList;
 
 import modelo.ProfSaude;
 import modelo.Vacina;
+import modelo.Vacinacao;
 import modelo.Vacinante;
 
 public class VacinanteControle {
@@ -65,12 +66,17 @@ public class VacinanteControle {
 
         VacinacaoControle vacinacaoCont = new VacinacaoControle();
 
-        vacinacaoCont.cadastrar(vacina.pesquisarVacina(marca, lote), data,
-                profSaude.pesquisarProfissional(numNacionalIdentidade), dose);
+        vacinacaoCont.cadastrar(vacina.pesquisarVacina(marca, lote).getTipo(),
+                vacina.pesquisarVacina(marca, lote).getLote(), data,
+                profSaude.pesquisarProfissional(numNacionalIdentidade).getNome(), dose);
+
+        /*
+         * Vacinacao a = new Vacinacao(vacina.pesquisarVacina(marca, lote), data,
+         * profSaude.pesquisarProfissional(numNacionalIdentidade), dose);
+         */
 
         Vacinante levaPicada = new Vacinante();
-        levaPicada.addCartaoVacina(vacinacaoCont.pesquisarVacinacao(vacina.pesquisarVacina(marca, lote), data,
-                profSaude.pesquisarProfissional(numNacionalIdentidade), dose));
+        levaPicada.addCartaoVacina(vacinacaoCont.pesquisarVacinacao(data, dose));
     }
 
     public void removeCartaoVacina(Vacina vacina, String data, int dose) throws IOException, ClassNotFoundException {

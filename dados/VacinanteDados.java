@@ -38,12 +38,11 @@ public class VacinanteDados {
                 vacinantes.remove(i);
                 break;
             }
-
-            vacinantes.add(vac);
-            FileOutputStream fluxo = new FileOutputStream(arq);
-            try (ObjectOutputStream gravaOb = new ObjectOutputStream(fluxo)) {
-                gravaOb.writeObject(vacinantes);
-            }
+        }
+        vacinantes.add(vac);
+        FileOutputStream fluxo = new FileOutputStream(arq);
+        try (ObjectOutputStream gravaOb = new ObjectOutputStream(fluxo)) {
+            gravaOb.writeObject(vacinantes);
         }
     }
 
