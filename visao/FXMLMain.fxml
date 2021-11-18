@@ -218,7 +218,7 @@
                               <Insets left="200.0" />
                            </padding>
                         </Label>
-                        <Label fx:id="VacinasResultLabel" layoutX="426.0" layoutY="319.0" prefHeight="76.0" prefWidth="500.0">
+                        <Label fx:id="VacinasResultLabel" layoutX="426.0" layoutY="292.0" prefHeight="139.0" prefWidth="500.0">
                            <font>
                               <Font name="Arial Bold" size="24.0" />
                            </font>
@@ -232,7 +232,7 @@
                            </padding>
                         </Label>
                         <ComboBox fx:id="adicionarVacinaPesquisarComboBox" layoutX="420.0" layoutY="435.0" prefHeight="25.0" prefWidth="363.0" />
-                        <Button fx:id="pesquisarVacinaAdicionarVacinaButton" layoutX="804.0" layoutY="435.0" mnemonicParsing="false" onAction="#pesquisarUsuario" prefHeight="25.0" prefWidth="122.0" style="-fx-background-color: #2C1764;" text="Adicionar vacina" textFill="WHITE" />
+                        <Button fx:id="pesquisarVacinaAdicionarVacinaButton" layoutX="804.0" layoutY="435.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="122.0" style="-fx-background-color: #2C1764;" text="Adicionar vacina" textFill="WHITE" />
                      </children>
                   </AnchorPane>
                </children>

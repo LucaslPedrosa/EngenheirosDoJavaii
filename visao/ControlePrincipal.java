@@ -149,17 +149,48 @@ public class ControlePrincipal implements Initializable {
     VacinaControle vacinaControle = new VacinaControle();
     VacinanteControle vacinanteControle = new VacinanteControle();
 
+    private long selectedVacinne = 0;
+
     @Override
     public void initialize(URL location, ResourceBundle resources) {
 
         sexoCadastrarUsuarioTextField.getItems().addAll(sexoCadastrarUsuario);
-       try{
-         adicionarVacinaPesquisarComboBox.getItems().addAll((vacinaControle.listarVacina()).toArray(new String[vacinaControle.listarVacina().size()]));
-       }catch(Exception e){
-           adicionarVacinaPesquisarComboBox.getItems().addAll("Não há Vacinas Registradas");
-       }
+
+        adicionarVacinaPesquisarComboBox.getItems().addAll("Não há vacinas disponiveis");
+
+        adicionarVacinaPesquisarComboBox.setOnMouseClicked(Event -> {
+            try {
+                // .toArray(new String[vacinaControle.listarVacina().size()])
+                ArrayList<Vacina> vacinass = vacinaControle.listarVacina();
+                String[] vacinasBoxString = new String[vacinass.size()];
+
+                for (int i = 0; i < vacinass.size(); i++) {
+                    vacinasBoxString[i] = vacinass.get(i).getTipo();
+                }
+
+                if (vacinass.size() != 0) {
+                    adicionarVacinaPesquisarComboBox.getItems().setAll(vacinasBoxString);
+                }
+
+
+            } catch (Exception e) {
+                System.out.println(e.toString());
+            }
+        });
 
         // BOTOES BOTOES BOTOES BOTOES BOTOES BOTOES
+
+        pesquisarVacinaAdicionarVacinaButton.setOnMouseClicked(Event -> {
+            String a = VacinasResultLabel.getText();
+            a += "\n";
+            a += adicionarVacinaPesquisarComboBox.getValue();
+            VacinasResultLabel.setText(a);
+
+
+
+        });
+
+
         exitButton.setOnMouseClicked(Event -> {
             Stage stage;
             stage = (Stage) AnchorPai.getScene().getWindow();
@@ -214,14 +245,12 @@ public class ControlePrincipal implements Initializable {
             cadastrarVacinaAction.setStyle("-fx-Background-Color: #582fc8;");
         });
 
-
-        
-
         pesquisarUsuarioButton.setOnMouseClicked(Event -> {
             pesquisarAnchorPane.setVisible(true);
             cadastrarUsuarioAnchorPane.setVisible(false);
             cadastrarProfissionalAnchorPane.setVisible(false);
             cadastrarVacinaAnchorPane.setVisible(false);
+
         });
 
         cadastrarUsuarioButton.setOnMouseEntered(Event -> {
@@ -267,6 +296,7 @@ public class ControlePrincipal implements Initializable {
             cadastrarUsuarioAnchorPane.setVisible(false);
             cadastrarProfissionalAnchorPane.setVisible(false);
             cadastrarVacinaAnchorPane.setVisible(true);
+
         });
     }
 
@@ -298,6 +328,7 @@ public class ControlePrincipal implements Initializable {
         sexoResultLabel.setText(vacinante.getSexo());
         nascimentoResultLabel.setText(vacinante.getNascimento());
         comorbidadesResultLabel.setText(vacinante.getProblemasDeSaude());
+        VacinasResultLabel.setText("");
     }
 
     public void cadastrarVacina(ActionEvent event) throws Exception {
