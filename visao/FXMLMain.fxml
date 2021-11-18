@@ -130,7 +130,7 @@
                         <Button fx:id="pesquisarUsuarioAction" layoutX="897.0" layoutY="60.0" mnemonicParsing="false" onAction="#pesquisarUsuario" prefHeight="25.0" prefWidth="122.0" style="-fx-background-color: #2C1764;" text="Iniciar busca" textFill="WHITE" />
                      </children>
                   </AnchorPane>
-                  <AnchorPane fx:id="usuarioPesquisadoAnchorPane" layoutX="14.0" layoutY="157.0" prefHeight="522.0" prefWidth="1002.0">
+                  <AnchorPane fx:id="usuarioPesquisadoAnchorPane" layoutX="18.0" layoutY="157.0" prefHeight="522.0" prefWidth="1002.0">
                      <children>
                         <Label layoutX="4.0" layoutY="67.0" prefHeight="27.0" prefWidth="282.0" text=" CPF" textFill="#3f2863">
                            <font>
@@ -164,7 +164,7 @@
                               <Insets left="200.0" />
                            </padding>
                         </Label>
-                        <Label layoutX="15.0" layoutY="211.0" text="Comorbidades" textFill="#3f2863">
+                        <Label layoutX="15.0" layoutY="222.0" text="Comorbidades" textFill="#3f2863">
                            <font>
                               <Font name="Arial Bold" size="24.0" />
                            </font>
@@ -205,7 +205,7 @@
                               <Font name="Arial Bold" size="24.0" />
                            </font>
                         </Label>
-                        <Label fx:id="comorbidadesResultLabel" layoutX="420.0" layoutY="211.0" prefHeight="76.0" prefWidth="501.0">
+                        <Label fx:id="comorbidadesResultLabel" layoutX="412.0" layoutY="198.0" prefHeight="76.0" prefWidth="501.0">
                            <font>
                               <Font name="Arial Bold" size="24.0" />
                            </font>
