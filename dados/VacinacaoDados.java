@@ -1,5 +1,7 @@
 package dados;
 
+import modelo.ProfSaude;
+import modelo.Vacina;
 import modelo.Vacinacao;
 
 import java.io.File;
@@ -11,14 +13,13 @@ import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.util.ArrayList;
 
-
 public class VacinacaoDados {
 
     public void cadastrarProf(Vacinacao vacinacao) throws IOException, ClassNotFoundException {
         ArrayList<Vacinacao> vacinacoes = new ArrayList<>();
         File arq = new File("listarVacinacoes.ser");
         if (arq.exists())
-            vacinacoes = listarProfissionais();
+            vacinacoes = listarVacinacoes();
 
         vacinacoes.add(vacinacao);
         FileOutputStream fluxo = new FileOutputStream(arq);
@@ -27,8 +28,7 @@ public class VacinacaoDados {
         }
     }
 
-    public ArrayList<Vacinacao> listarVacinacoes()
-            throws IOException, ClassNotFoundException, FileNotFoundException {
+    public ArrayList<Vacinacao> listarVacinacoes() throws IOException, ClassNotFoundException, FileNotFoundException {
         ArrayList<Vacinacao> vacinacoes;
         File arq = new File("listarVacinacoes.ser");
         FileInputStream fluxo = new FileInputStream(arq);
@@ -46,7 +46,8 @@ public class VacinacaoDados {
             vacinacoes = listarVacinacoes();
 
         for (int i = 0; i < vacinacoes.size(); i++) {
-            if (vacina.equals(vacinacoes.get(i).getVacina()) && proSRes.equals(vacinacoes.get(i).getProficionalSaude()) && data.equals(vacinacoes.get(i).getData()) && dose == vacinacoes.get(i).getDose()) {
+            if (vacina.equals(vacinacoes.get(i).getVacina()) && proSRes.equals(vacinacoes.get(i).getProficionalSaude())
+                    && data.equals(vacinacoes.get(i).getData()) && dose == vacinacoes.get(i).getDose()) {
                 vacinacoes.remove(i);
                 break;
             }

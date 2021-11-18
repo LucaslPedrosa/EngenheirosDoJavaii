@@ -4,6 +4,8 @@ import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.ArrayList;
 
+import modelo.ProfSaude;
+import modelo.Vacina;
 import modelo.Vacinacao;
 
 public class VacinacaoControle {
@@ -16,7 +18,7 @@ public class VacinacaoControle {
 
     public ArrayList<Vacinacao> listarVacinacao() throws FileNotFoundException, IOException, ClassNotFoundException {
         Vacinacao ps = new Vacinacao();
-        return ps.listarVacinacoes();
+        return ps.listarVacinacao();
     }
 
     public void removerVacinacao(Vacina vacina, String data, ProfSaude proSRes, int dose)
@@ -29,13 +31,14 @@ public class VacinacaoControle {
             throws FileNotFoundException, IOException, ClassNotFoundException {
         Vacinacao vac = null;
         ArrayList<Vacinacao> vacinacoes = listarVacinacao();
-        for (int i = 0; i < proficionais.size(); i++) {
-            if (numNacionalIdentidade == proficionais.get(i).getNumNacionalIdentidade()) {
-                ps = proficionais.get(i);
+        for (int i = 0; i < vacinacoes.size(); i++) {
+            if (vacina.equals(vacinacoes.get(i).getVacina()) && proSRes.equals(vacinacoes.get(i).getProficionalSaude())
+                    && data.equals(vacinacoes.get(i).getData()) && dose == vacinacoes.get(i).getDose()) {
+                vac = vacinacoes.get(i);
                 break;
             }
         }
-        return ps;
+        return vac;
     }
 
     public String imprimir(Vacina vacina, String data, ProfSaude proSRes, int dose)
@@ -45,7 +48,7 @@ public class VacinacaoControle {
     }
 
     public String ImprimirTodos() throws ClassNotFoundException, FileNotFoundException, IOException {
-        ArrayList<Vacinacao> vacinacoes = listarProfSaude();
+        ArrayList<Vacinacao> vacinacoes = listarVacinacao();
         String p = "";
         for (int i = 0; i < vacinacoes.size(); i++) {
             p += vacinacoes.get(i).imprimir() + "\n\n\n";

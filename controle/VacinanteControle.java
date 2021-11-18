@@ -63,9 +63,14 @@ public class VacinanteControle {
 
         ProfSaudeControle profSaude = new ProfSaudeControle();
 
-        Vacinante levaPicada = new Vacinante();
-        levaPicada.addCartaoVacina(vacina.pesquisarVacina(marca, lote), data,
+        VacinacaoControle vacinacaoCont = new VacinacaoControle();
+
+        vacinacaoCont.cadastrar(vacina.pesquisarVacina(marca, lote), data,
                 profSaude.pesquisarProfissional(numNacionalIdentidade), dose);
+
+        Vacinante levaPicada = new Vacinante();
+        levaPicada.addCartaoVacina(vacinacaoCont.pesquisarVacinacao(vacina.pesquisarVacina(marca, lote), data,
+                profSaude.pesquisarProfissional(numNacionalIdentidade), dose));
     }
 
     public void removeCartaoVacina(Vacina vacina, String data, int dose) throws IOException, ClassNotFoundException {

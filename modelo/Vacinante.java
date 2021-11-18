@@ -109,10 +109,8 @@ public class Vacinante implements Serializable {
                 + this.getNascimento() + "\nSexo: " + this.getSexo());
     }
 
-    public void addCartaoVacina(Vacinacao vac)
-            throws IOException, ClassNotFoundException {
-        Vacinacao vnc = new Vacinacao(vacina, data, proSRes, dose);
-        cartaoVacina.add(vc);
+    public void addCartaoVacina(Vacinacao vac) throws IOException, ClassNotFoundException {
+        cartaoVacina.add(vac);
 
         VacinanteDados vudu = new VacinanteDados();
         vudu.atualizarVacinante(this);
