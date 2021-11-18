@@ -27,25 +27,6 @@ public class VacinanteDados {
         }
     }
 
-    public void atualizarVacinante(Vacinante vac) throws IOException, ClassNotFoundException {
-        ArrayList<Vacinante> vacinantes = new ArrayList<>();
-        File arq = new File("listaVacinantes.ser");
-        if (arq.exists())
-            vacinantes = listarVacinante();
-
-        for (int i = 0; i < vacinantes.size(); i++) {
-            if (vac.getCPF() == vacinantes.get(i).getCPF()) {
-                vacinantes.remove(i);
-                break;
-            }
-        }
-        vacinantes.add(vac);
-        FileOutputStream fluxo = new FileOutputStream(arq);
-        try (ObjectOutputStream gravaOb = new ObjectOutputStream(fluxo)) {
-            gravaOb.writeObject(vacinantes);
-        }
-    }
-
     public ArrayList<Vacinante> listarVacinante() throws IOException, ClassNotFoundException, FileNotFoundException {
         ArrayList<Vacinante> vacinante;
         File arq = new File("listaVacinantes.ser");
@@ -74,5 +55,4 @@ public class VacinanteDados {
             gravaOb.writeObject(vacinante);
         }
     }
-
 }

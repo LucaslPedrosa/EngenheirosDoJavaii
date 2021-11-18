@@ -16,6 +16,12 @@ public class VacinanteControle {
         vt.cadastrar();
     }
 
+    public void cadastrarVacinante(String nome, String sexo, String nascimento, String problemasDeSaude, long cpf,
+            ArrayList<Vacinacao> cartaoVacina) throws FileNotFoundException, IOException, ClassNotFoundException {
+        Vacinante vt = new Vacinante(nome, sexo, nascimento, problemasDeSaude, cpf, cartaoVacina);
+        vt.cadastrar();
+    }
+
     private ArrayList<Vacinante> listarVacinante() throws FileNotFoundException, IOException, ClassNotFoundException {
         Vacinante vt = new Vacinante();
         return vt.listarVaciante();
@@ -88,6 +94,19 @@ public class VacinanteControle {
         Vacinante levaPicada = new Vacinante();
         return levaPicada.imprimirCartaoVacina();
     }
+
+    /*
+     * public void atualizar(Vacinante vac) throws FileNotFoundException,
+     * IOException, ClassNotFoundException { String nome = vac.getNome(); String
+     * sexo = vac.getSexo(); String nascimento = vac.getNascimento(); String
+     * problemasDeSaude = vac.getProblemasDeSaude(); long cpf = vac.getCPF();
+     * ArrayList<Vacinacao> cartaoVacina = vac.getCartaoVacina();
+     * 
+     * removerVacinante(cpf);
+     * 
+     * cadastrarVacinante(nome, sexo, nascimento, problemasDeSaude, cpf,
+     * cartaoVacina); }
+     */
 
     /*
      * public void agendar(String marca, long lote, String data) throws IOException,

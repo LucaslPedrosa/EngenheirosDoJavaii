@@ -5,6 +5,7 @@ import java.io.IOException;
 import java.io.Serializable;
 import java.util.ArrayList;
 
+import controle.VacinanteControle;
 import dados.VacinanteDados;
 
 public class Vacinante implements Serializable {
@@ -31,12 +32,16 @@ public class Vacinante implements Serializable {
         this.nascimento = nascimento;
         this.problemasDeSaude = problemasDeSaude;
         this.cpf = cpf;
+    }
 
-        Vacinacao v = new Vacinacao();
-        Agendamento a = new Agendamento();
-
-        this.cartaoVacina.add(v);
-        this.agenda.add(a);
+    public Vacinante(String nome, String sexo, String nascimento, String problemasDeSaude, long cpf,
+            ArrayList<Vacinacao> cartaoVacina) {
+        this.nome = nome;
+        this.sexo = sexo;
+        this.nascimento = nascimento;
+        this.problemasDeSaude = problemasDeSaude;
+        this.cpf = cpf;
+        this.cartaoVacina = cartaoVacina;
     }
 
     // gets e sets
@@ -89,6 +94,10 @@ public class Vacinante implements Serializable {
     }
 
     // metodos
+    public ArrayList<Vacinacao> getCartaoVacina() {
+        return this.cartaoVacina;
+    }
+
     public void cadastrar() throws IOException, ClassNotFoundException {
         VacinanteDados vd = new VacinanteDados();
         vd.cadastrarVacinante(this);
@@ -112,8 +121,9 @@ public class Vacinante implements Serializable {
     public void addCartaoVacina(Vacinacao vac) throws IOException, ClassNotFoundException {
         cartaoVacina.add(vac);
 
-        VacinanteDados vudu = new VacinanteDados();
-        vudu.atualizarVacinante(this);
+        // VacinanteControle vace = new VacinanteControle();
+
+        // vace.atualizar(this);
     }
 
     public void removeCartaoVacina(Vacina vacina, String data, int dose) throws IOException, ClassNotFoundException {
@@ -127,8 +137,9 @@ public class Vacinante implements Serializable {
         }
         cartaoVacina.remove(v);
 
-        VacinanteDados vudu = new VacinanteDados();
-        vudu.atualizarVacinante(this);
+        // VacinanteControle vace = new VacinanteControle();
+
+        // vace.atualizar(this);
     }
 
     public String imprimirCartaoVacina() {
@@ -143,8 +154,9 @@ public class Vacinante implements Serializable {
         Agendamento novo = new Agendamento(vacine, data);
         agenda.add(novo);
 
-        VacinanteDados vudu = new VacinanteDados();
-        vudu.atualizarVacinante(this);
+        // VacinanteControle vace = new VacinanteControle();
+
+        // vace.atualizar(this);
     }
 
     public void removeAgenda(Vacina vacina, String data) throws IOException, ClassNotFoundException {
@@ -157,8 +169,9 @@ public class Vacinante implements Serializable {
         }
         agenda.remove(a);
 
-        VacinanteDados vudu = new VacinanteDados();
-        vudu.atualizarVacinante(this);
+        // VacinanteControle vace = new VacinanteControle();
+
+        // vace.atualizar(this);
     }
 
     public String imprimirAgenda() { // Como a agenda serve para hipoteticamente ser mostrada no celular da pessoa,
